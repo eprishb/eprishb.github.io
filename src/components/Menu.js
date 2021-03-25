@@ -42,7 +42,7 @@ const Menu = ({ isOpen, toggleMenu, activePage }) => {
 						spy={true}
 					>Portfolio</MenuLinks>
 					<Resume primary>
-						<a href="../assets/EprisBurnettResume.pdf" download> RESUM&Eacute; </a>
+						<a href="src/assets/EprisBurnettResume.pdf" download> RESUM&Eacute; </a>
 					</Resume>
 					{/* <MenuLinks
 						to='contact'
