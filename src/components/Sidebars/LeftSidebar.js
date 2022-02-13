@@ -32,7 +32,7 @@ const LeftSidebar = () => {
 				</ListItem>
 			</List>
 			<Divider orientation="vertical" light={true} />
-			<Typography variant="overline"> Follow Me </Typography>
+			<Typography variant="overline"> Contact Me </Typography>
 		</Sidebar>
 	)
 }

@@ -8,6 +8,7 @@ function Footer({ activePage }) {
 			<Toolbar>
 				<Copyright>
 					&copy; 2021 Seven Times Design <br />
+					Made with React <br />
 					All Rights Reserved.
 				</Copyright>
 				<PageCounter page={activePage}>
