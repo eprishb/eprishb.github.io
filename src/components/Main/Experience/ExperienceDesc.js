@@ -1,7 +1,7 @@
 export const Descriptions = [
 	{
 		id: "palace",
-		src: require('./../../../assets/img/palace-logo.png').default,
+		src: require('./../../../assets/img/palace-logo.png'),
 		company: "Palace Sports & Entertainment",
 		date: "Jun 2013 - Sep 2013",
 		desc: <ul>
@@ -11,7 +11,7 @@ export const Descriptions = [
 	},
 	{
 		id:"continental",
-		src: require('./../../../assets/img/continental-logo.png').default,
+		src: require('./../../../assets/img/continental-logo.png'),
 		company: "Continental Services",
 		date: "Sep 2013 - Sep 2015",
 		desc: <ul>
@@ -26,7 +26,7 @@ export const Descriptions = [
 	{
 		id:"bradley",
 		date: "May 2017 - May 2018",
-		src: require('./../../../assets/img/bradley-logo.png').default,
+		src: require('./../../../assets/img/bradley-logo.png'),
 		company: "Bradley Co.",
 		desc: <ul>
 			<li>Redrew logos in Illustrator when requested by the customer</li>
@@ -39,7 +39,7 @@ export const Descriptions = [
 	},
 	{
 		id:"brooks",
-		src: require('./../../../assets/img/brooks-logo.png').default,
+		src: require('./../../../assets/img/brooks-logo.png'),
 		company: "Brooks Equipment",
 		date: "Feb 2019 - Present",
 		desc: <ul>
