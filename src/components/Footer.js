@@ -7,7 +7,7 @@ function Footer({ activePage }) {
 		<FooterCont>
 			<Toolbar>
 				<Copyright>
-					&copy; 2021 Seven Times Design <br />
+					&copy; 2022 Seven Times Design <br />
 					Made with React <br />
 					All Rights Reserved.
 				</Copyright>
