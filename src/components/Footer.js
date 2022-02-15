@@ -17,7 +17,7 @@ function Footer({ activePage }) {
 					{activePage === 'experience' && 3}
 					{activePage === 'portfolio' && 4}
 					{activePage === 'contact' && 5}
-					 /5
+					 /4
 				</PageCounter>
 			</Toolbar>
 		</FooterCont>
