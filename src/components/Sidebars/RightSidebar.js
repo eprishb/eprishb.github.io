@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 import { motion, AnimateSharedLayout } from 'framer-motion'
 import { Link } from 'react-scroll'
 import styled from 'styled-components'
@@ -9,6 +10,7 @@ const RightSidebar = ({ activePage, updateActivePage }) => {
 	const [selected, setSelected] = useState(pageIds[0]);
 
 	const updateActiveSelected = (e, pageId) => {
+		e.preventDefault();
 		setSelected(pageId);
 		updateActivePage(e.target.getAttribute("page"));
 	}
@@ -40,6 +42,10 @@ const RightSidebar = ({ activePage, updateActivePage }) => {
 			</AnimateSharedLayout>
 		</Sidebar>
 	)
+}
+
+RightSidebar.propTypes = {
+	inView: PropTypes.bool
 }
 
 export default RightSidebar

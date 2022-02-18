@@ -3,6 +3,7 @@ import Projects from './Project'
 import styled from 'styled-components'
 
 const Portfolio = ({ toggleModal }) => {
+
 	return (
 		<Section id="portfolio">
 				<Container>

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import profile from '../../assets/EprisHB.png'
 
 const About = () => {
+
 	return (
 		<Section id="about">
 			<Container>

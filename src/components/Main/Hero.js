@@ -3,7 +3,8 @@ import Button from './Button'
 import styled from 'styled-components'
 import heroImage from '../../assets/profile_web.png'
 
-const Hero = ({activePage}) => {
+const Hero = ({ activePage }) => {
+
 	return (
 		<Jumbotron id="hero">
 			<Container>

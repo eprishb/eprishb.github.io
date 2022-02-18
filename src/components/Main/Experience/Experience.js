@@ -6,6 +6,7 @@ import { styled as MaterialStyled } from '@material-ui/core/styles'
 import styled from 'styled-components'
 
 const Experience = ({ toggleModal }) => {
+
 	return (
 		<Section id="experience">
 			<Container>
