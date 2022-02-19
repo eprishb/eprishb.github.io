@@ -45,6 +45,7 @@ const Section = styled.section `
 	min-height: 100vh;
 	display: grid;
 	place-items: center;
+	padding-top: 64px;
 	color: #ccdbe5;
 `
 const Container = styled.div `
