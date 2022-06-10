@@ -18,7 +18,7 @@ const LeftSidebar = () => {
 				</ListItem>
 				<ListItem disableGutters={true} >
 					<ListItemIcon >
-						<SocialButton href="https://github.com/esdhb0906" target="_blank">
+						<SocialButton href="https://github.com/eprishb" target="_blank">
 							<GitHubIcon />
 						</SocialButton>
 					</ListItemIcon>

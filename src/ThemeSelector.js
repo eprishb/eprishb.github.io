@@ -4,7 +4,7 @@ import { getFromLS } from './utils/storage'
 import { themeIcons } from './assets/img/images'
 import styled from "styled-components"
 
-export default (props) => {
+const ThemeSelector = (props) => {
 	const themesFromStore = getFromLS('all-themes');
 	const [data, setData] = useState(themesFromStore.data);
 	const [themes, setThemes] = useState([]);
@@ -56,6 +56,8 @@ export default (props) => {
 		</Wrapper>
 	)
 }
+
+export default ThemeSelector
 
 const Wrapper = styled.div `
 	width: 120px;

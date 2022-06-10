@@ -24,7 +24,7 @@ export const Descriptions = [
 	},
 	{
 		id: "mem",
-		date: <span>Aug 2018 <a href="https://esdhb0906.github.io/Project-Memory_Game/" target="_blank" rel="noopener noreferrer"><LaunchIcon/></a></span>,
+		date: <span>Aug 2018 <a href="https://eprishb.github.io/Project-Memory_Game/" target="_blank" rel="noopener noreferrer"><LaunchIcon/></a></span>,
 		service: "Vanilla JS | Personal Project",
 		desc: "We all scream for better memory. No one likes to experience brain fog. Have fun with this mentally stimulating and sweet memory game.",
 		src: <img src={require('../../../assets/img/memory-game.png')} alt="" />
