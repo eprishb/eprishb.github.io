@@ -33,7 +33,6 @@ export const loader = async () => {
 export default function TestingIndex() {
   return (
     <main style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-			<h1>Testing Index</h1>
 			<Hero />
 			<About />
 			<Experience />
