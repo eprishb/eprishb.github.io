@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import profile from '~/assets/EprisHB.png'
 
 const About = () => {
 
@@ -6,7 +7,7 @@ const About = () => {
 		<Section id="about">
 			<Container>
 				<Profile>
-					{/* <img src={profile} alt="Epris HB" style={{width: 300, height:'auto'}} /> */}
+					<img src={profile} alt="Epris HB" style={{width: 300, height:'auto'}} />
 				</Profile>
 				<Details>
 					<Intro>Hello, I'm &Eacute;pris Harris-Burnett</Intro>
