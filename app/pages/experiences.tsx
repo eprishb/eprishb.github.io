@@ -1,42 +1,32 @@
-import type { FC } from 'react'
 import styled from 'styled-components'
+import { useLoaderData} from '@remix-run/react'
 
 // type ExperienceProps = {
+// 	descriptions: Array;
 // 	toggleModal: any;
 // }
 
-
-const Experience: FC = () => {
+export default function Experience() {
+	const { expDescs } = useLoaderData()
+	console.log(expDescs)
   return (
     <Section id="experience">
       <Container>
         <Heading>Work Experience</Heading>
         <ExperienceDetails>
-          {/* {Jobs.map((job, index) => (
+					{expDescs.map((desc: any, index: number) => (
             <Details
               key={index}
-              size={200}
-              position={'relative'}
-              background={''}
-              whileHover={{
-                background: '#bf4953',
-              }}>
-              {job.icon}
-              <Typography>{job.company}</Typography>
-              <Typography className="overline">{job.jobTitle}</Typography>
-              <Launch
-                id={job.company}
-                onClick={(e) => toggleModal(e.currentTarget, 'experience')}
-              />
+						>
+              <Typography>{desc.company}</Typography>
+              <Typography className="overline">{desc.jobTitle}</Typography>
             </Details>
-          ))} */}
-        </ExperienceDetails>
+          ))}
+				</ExperienceDetails>
       </Container>
     </Section>
   )
 }
-
-export default Experience
 
 const Section = styled.section`
   min-height: 100vh;

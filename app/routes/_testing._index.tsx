@@ -1,4 +1,8 @@
 import type { V2_MetaFunction } from "@remix-run/node";
+
+import { json } from '@remix-run/node'
+import { getExperienceDescriptions, getProjectDescriptions } from '~/models/description.server'
+
 import Hero from '~/pages/hero'
 import About from "~/pages/about";
 import Experience from "~/pages/experiences";
@@ -10,6 +14,15 @@ export const meta: V2_MetaFunction = () => {
     { name: "description", content: "Welcome to Remix!" },
   ];
 };
+
+export const loader = async () => {
+	const [expDescs, projDescs] = await Promise.all([
+		getExperienceDescriptions(),
+		getProjectDescriptions()
+	])
+
+	return json({ expDescs, projDescs })
+}
 
 export default function TestingIndex() {
   return (
