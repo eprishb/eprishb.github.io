@@ -2,6 +2,7 @@ import type { V2_MetaFunction } from "@remix-run/node";
 
 import { json } from '@remix-run/node'
 import { getExperienceDescriptions, getProjectDescriptions } from '~/models/description.server'
+import { getImages, getFeatImages, getJobImages, getProjectImages, getThemeIcons } from "~/models/image.server";
 
 import Hero from '~/pages/hero'
 import About from "~/pages/about";
@@ -16,12 +17,17 @@ export const meta: V2_MetaFunction = () => {
 };
 
 export const loader = async () => {
-	const [expDescs, projDescs] = await Promise.all([
+	const [expDescs, projDescs, imgs, featImgs, jobImgs, projImgs, themeIcons] = await Promise.all([
 		getExperienceDescriptions(),
-		getProjectDescriptions()
+		getProjectDescriptions(),
+		getImages(),
+		getFeatImages(),
+		getJobImages(),
+		getProjectImages(),
+		getThemeIcons(),
 	])
 
-	return json({ expDescs, projDescs })
+	return json({ expDescs, projDescs, imgs, featImgs, jobImgs, projImgs, themeIcons })
 }
 
 export default function TestingIndex() {
