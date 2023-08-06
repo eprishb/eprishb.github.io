@@ -7,19 +7,19 @@ import { useLoaderData} from '@remix-run/react'
 // }
 
 export default function Experience() {
-	const { expDescs } = useLoaderData()
-	console.log(expDescs)
-  return (
+	const { jobImgs } = useLoaderData()
+
+	return (
     <Section id="experience">
       <Container>
         <Heading>Work Experience</Heading>
         <ExperienceDetails>
-					{expDescs.map((desc: any, index: number) => (
+					{jobImgs.map((job: any, index: number) => (
             <Details
               key={index}
 						>
-              <Typography>{desc.company}</Typography>
-              <Typography className="overline">{desc.jobTitle}</Typography>
+              <Typography>{job.company}</Typography>
+              <Typography className="overline">{job.jobTitle}</Typography>
             </Details>
           ))}
 				</ExperienceDetails>
