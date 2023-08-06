@@ -1,11 +1,11 @@
-import type { FC } from 'react'
 import styled from 'styled-components'
+import HeroImage from '~/assets/profile_web.png'
 
 // type HeroProps = {
 // 	activePage: any;
 // }
 
-const Hero: FC = () => {
+const Hero = () => {
   return (
     <Jumbotron id="hero">
       <Container>
@@ -45,6 +45,8 @@ export default Hero
 
 const Jumbotron = styled.section`
   height: 100vh;
+	background-image: url(${HeroImage});
+  background-size: cover;
 `
 const Container = styled.div`
   max-width: 1100px;
