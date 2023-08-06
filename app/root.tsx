@@ -8,26 +8,33 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import { ClientOnly } from 'remix-utils'
+import { createPortal } from "react-dom";
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
 ];
 
+export function Head() {
+	return (
+		<>
+			<Meta />
+			<Links />
+			{typeof document === "undefined"
+				? "__STYLES__"
+				: null}
+		</>
+	)
+}
+
 export default function App() {
   return (
-    <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <Meta />
-        <Links />
-      </head>
-      <body>
-        <Outlet />
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
-      </body>
-    </html>
+		<>
+			<ClientOnly>{() => createPortal(<Head />, document.head)}</ClientOnly>
+			<Outlet />
+			<ScrollRestoration />
+			<Scripts />
+			<LiveReload />
+		</>
   );
 }

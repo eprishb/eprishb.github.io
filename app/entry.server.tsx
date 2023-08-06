@@ -10,8 +10,9 @@ import type { AppLoadContext, EntryContext } from "@remix-run/node";
 import { Response } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
 import isbot from "isbot";
-import { renderToPipeableStream } from "react-dom/server";
-
+import { renderToPipeableStream, renderToString } from "react-dom/server";
+import { ServerStyleSheet } from "styled-components";
+import { Head } from '~/root'
 const ABORT_DELAY = 5_000;
 
 export default function handleRequest(
@@ -19,7 +20,7 @@ export default function handleRequest(
   responseStatusCode: number,
   responseHeaders: Headers,
   remixContext: EntryContext,
-  loadContext: AppLoadContext
+	loadContext: AppLoadContext
 ) {
   return isbot(request.headers.get("user-agent"))
     ? handleBotRequest(
@@ -32,7 +33,7 @@ export default function handleRequest(
         request,
         responseStatusCode,
         responseHeaders,
-        remixContext
+				remixContext,
       );
 }
 
@@ -89,8 +90,27 @@ function handleBrowserRequest(
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
-  remixContext: EntryContext
+	remixContext: EntryContext,
 ) {
+	const defaultRoot = remixContext.routeModules.root;
+	remixContext.routeModules.root = {
+		...defaultRoot,
+		default: Head,
+	}
+
+	const sheet = new ServerStyleSheet();
+
+	let head = renderToString(
+		sheet.collectStyles(
+			<RemixServer context={remixContext} url={request.url} />
+		)
+	);
+
+	const styles = sheet.getStyleTags();
+	head = head.replace('__STYLES__', styles);
+
+	remixContext.routeModules.root = defaultRoot;
+	
   return new Promise((resolve, reject) => {
     let shellRendered = false;
     const { pipe, abort } = renderToPipeableStream(
@@ -113,7 +133,12 @@ function handleBrowserRequest(
             })
           );
 
+					body.write(
+            `<!DOCTYPE html><html><head><!--start head-->${head}<!--end head--></head><body><div id="root">`
+          );
+
           pipe(body);
+					body.write(`</div></body></html>`);
         },
         onShellError(error: unknown) {
           reject(error);

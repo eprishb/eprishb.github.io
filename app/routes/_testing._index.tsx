@@ -1,5 +1,4 @@
 import type { V2_MetaFunction } from "@remix-run/node";
-import { Outlet } from "@remix-run/react";
 import Hero from '~/pages/hero'
 import About from "~/pages/about";
 import Experience from "~/pages/experiences";
