@@ -1,5 +1,6 @@
 import type { FC } from 'react'
 import styled from 'styled-components'
+import Projects from '~/components/Projects/Projects'
 
 // type PortfolioProps = {
 // 	toggleModal: any;
@@ -10,7 +11,7 @@ const Portfolio: FC = () => {
     <Section id="portfolio">
       <Container>
         <Typography>Portfolio</Typography>
-        {/* <Projects toggleModal={toggleModal} /> */}
+        <Projects />
       </Container>
     </Section>
   )
