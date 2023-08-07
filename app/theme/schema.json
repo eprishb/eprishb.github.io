@@ -1,0 +1,52 @@
+{
+	"data" : {
+		"primary" : {
+			"id" : "prmry",
+			"name" : "Primary",
+			"colors" : {
+				"body" : "#202945",
+				"text" : "#ccdbe5",
+				"button" : {
+					"text" : "#ccdbe5",
+					"background" : "bf4953"
+				},
+				"link" : {
+					"text" : "#bf4953"
+				}
+			},
+			"font" : "Lato"
+		},
+		"light" : {
+			"id" : "lght",
+			"name" : "Light",
+			"colors" : {
+				"body" : "#ccdbe5",
+				"text" : "#202945",
+				"button" : {
+					"text" : "#ccdbe5",
+					"background" : "#bf4953"
+				},
+				"link" : {
+					"text" : "#202945"
+				}
+			},
+			"font" : "Lato"
+		},
+		"secondary" : {
+			"id" : "secndry",
+			"name" : "Secondary",
+			"colors" : {
+				"body" : "#bf4953",
+				"text" : "#ccdbe5",
+				"button" : {
+					"text" : "#ccdbe5",
+					"background" : "#202945"
+				},
+				"link" : {
+					"text" : "#202945"
+				}
+			},
+			"font" : "Lato"
+		}
+	}
+}
