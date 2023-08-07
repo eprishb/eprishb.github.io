@@ -10,6 +10,7 @@ import {
 } from "@remix-run/react";
 import { ClientOnly } from 'remix-utils'
 import { createPortal } from "react-dom";
+import { GlobalStyles } from './theme/GlobalStyles'
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
@@ -30,6 +31,7 @@ export function Head() {
 export default function App() {
   return (
 		<>
+			<GlobalStyles />
 			<ClientOnly>{() => createPortal(<Head />, document.head)}</ClientOnly>
 			<Outlet />
 			<ScrollRestoration />
