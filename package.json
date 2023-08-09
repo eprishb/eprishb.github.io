@@ -17,14 +17,19 @@
     "isbot": "^3.6.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "remix-island": "^0.1.2",
     "remix-utils": "^6.6.0",
     "styled-components": "^6.0.7"
   },
   "devDependencies": {
+    "@babel/plugin-transform-arrow-functions": "^7.22.5",
+    "@babel/preset-env": "^7.22.9",
     "@remix-run/dev": "^1.19.1",
     "@remix-run/eslint-config": "^1.19.1",
     "@types/react": "^18.0.35",
     "@types/react-dom": "^18.0.11",
+    "babel-core": "^6.26.3",
+    "babel-plugin-styled-components": "^2.1.4",
     "eslint": "^8.38.0",
     "typescript": "^5.0.4"
   },

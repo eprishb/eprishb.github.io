@@ -1,8 +1,14 @@
 import type { V2_MetaFunction } from "@remix-run/node";
 
+import { useEffect, useState } from 'react'
 import { json } from '@remix-run/node'
 import { getExperienceDescriptions, getProjectDescriptions } from '~/models/description.server'
 import { getImages, getFeatImages, getJobImages, getProjectImages, getThemeIcons } from "~/models/image.server";
+
+import { ThemeProvider } from 'styled-components'
+import { useTheme } from '~/theme/useTheme'
+
+import Loader from '~/components/base/Loader'
 
 import Hero from '~/pages/hero'
 import About from "~/pages/about";
@@ -31,12 +37,33 @@ export const loader = async () => {
 }
 
 export default function TestingIndex() {
+	// Theme
+  const { theme, themeLoaded } = useTheme()
+  const [selectedTheme, setSelectedTheme] = useState(theme)
+	const [loading, setLoading] = useState(true)
+	
+	useEffect(() => {
+    setTimeout(() => setLoading(false), 2000)
+  }, [])
+
+  useEffect(() => {
+    setSelectedTheme(theme)
+  }, [themeLoaded])
+	
   return (
-    <main style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-			<Hero />
-			<About />
-			<Experience />
-			<Portfolio />
+		<main style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
+			{loading === false ? (
+				<>
+					{ themeLoaded && (
+						<ThemeProvider theme={selectedTheme}>
+							<Hero />
+							<About />
+							<Experience />
+							<Portfolio />
+						</ThemeProvider>
+						)}
+				</>
+			) : ( <Loader />)}
     </main>
   );
 }

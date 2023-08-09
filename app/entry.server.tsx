@@ -11,16 +11,22 @@ import { Response } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
 import isbot from "isbot";
 import { renderToPipeableStream, renderToString } from "react-dom/server";
+import { renderHeadToString } from 'remix-island';
 import { ServerStyleSheet } from "styled-components";
-import { Head } from '~/root'
+import { Head } from "./root";
+
 const ABORT_DELAY = 5_000;
+const COMMON_HEAD = `
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+`;
 
 export default function handleRequest(
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
   remixContext: EntryContext,
-	loadContext: AppLoadContext
+  loadContext: AppLoadContext
 ) {
   return isbot(request.headers.get("user-agent"))
     ? handleBotRequest(
@@ -33,7 +39,7 @@ export default function handleRequest(
         request,
         responseStatusCode,
         responseHeaders,
-				remixContext,
+        remixContext
       );
 }
 
@@ -52,7 +58,8 @@ function handleBotRequest(
         abortDelay={ABORT_DELAY}
       />,
       {
-        onAllReady() {
+				onAllReady() {
+					const head = renderHeadToString({ request, remixContext, Head });
           shellRendered = true;
           const body = new PassThrough();
 
@@ -65,7 +72,11 @@ function handleBotRequest(
             })
           );
 
-          pipe(body);
+          body.write(
+            `<!DOCTYPE html><html lang="en"><head>${COMMON_HEAD}${head}</head><body><div id="root">`,
+					);
+					pipe(body);
+          body.write(`</div></body></html>`);
         },
         onShellError(error: unknown) {
           reject(error);
@@ -90,26 +101,9 @@ function handleBrowserRequest(
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
-	remixContext: EntryContext,
+  remixContext: EntryContext
 ) {
-	const defaultRoot = remixContext.routeModules.root;
-	remixContext.routeModules.root = {
-		...defaultRoot,
-		default: Head,
-	}
 
-	const sheet = new ServerStyleSheet();
-
-	let head = renderToString(
-		sheet.collectStyles(
-			<RemixServer context={remixContext} url={request.url} />
-		)
-	);
-
-	const styles = sheet.getStyleTags();
-	head = head.replace('__STYLES__', styles);
-
-	remixContext.routeModules.root = defaultRoot;
 	
   return new Promise((resolve, reject) => {
     let shellRendered = false;
@@ -120,11 +114,20 @@ function handleBrowserRequest(
         abortDelay={ABORT_DELAY}
       />,
       {
-        onShellReady() {
+				onShellReady() {
+					const head = renderHeadToString({ request, remixContext, Head });
+					const sheet = new ServerStyleSheet();
+					const markup = renderToString(
+						sheet.collectStyles(
+							<RemixServer context={remixContext} url={request.url} />
+						)
+					)
+
           shellRendered = true;
           const body = new PassThrough();
 
-          responseHeaders.set("Content-Type", "text/html");
+					responseHeaders.set("Content-Type", "text/html");
+					const styledComponentStyles = sheet.getStyleTags();
 
           resolve(
             new Response(body, {
@@ -133,12 +136,19 @@ function handleBrowserRequest(
             })
           );
 
-					body.write(
-            `<!DOCTYPE html><html><head><!--start head-->${head}<!--end head--></head><body><div id="root">`
+          body.write(
+						`<!DOCTYPE html>
+							<html lang="en">
+								<head>
+									${COMMON_HEAD}
+									${styledComponentStyles}
+									${head}
+								</head>
+								<body>
+								<div id="root">${markup}`,
           );
-
-          pipe(body);
-					body.write(`</div></body></html>`);
+					pipe(body);
+          body.write(`</div></body></html>`);
         },
         onShellError(error: unknown) {
           reject(error);

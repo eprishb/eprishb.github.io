@@ -16,7 +16,13 @@ export default function Experience() {
         <ExperienceDetails>
 					{jobImgs.map((job: any, index: number) => (
             <Details
-              key={index}
+							key={index}
+							// size={200}
+              // position={'relative'}
+              // background={''}
+              // whileHover={{
+              //   background: '#bf4953',
+              // }}
 						>
               <Typography>{job.company}</Typography>
               <Typography className="overline">{job.jobTitle}</Typography>
