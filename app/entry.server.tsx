@@ -10,7 +10,7 @@ import type { AppLoadContext, EntryContext } from "@remix-run/node";
 import { Response } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
 import isbot from "isbot";
-import { renderToPipeableStream, renderToString } from "react-dom/server";
+import { renderToPipeableStream } from "react-dom/server";
 import { renderHeadToString } from 'remix-island';
 import { ServerStyleSheet } from "styled-components";
 import { Head } from "./root";
@@ -59,7 +59,6 @@ function handleBotRequest(
       />,
       {
 				onAllReady() {
-					const head = renderHeadToString({ request, remixContext, Head });
           shellRendered = true;
           const body = new PassThrough();
 
@@ -72,11 +71,7 @@ function handleBotRequest(
             })
           );
 
-          body.write(
-            `<!DOCTYPE html><html lang="en"><head>${COMMON_HEAD}${head}</head><body><div id="root">`,
-					);
 					pipe(body);
-          body.write(`</div></body></html>`);
         },
         onShellError(error: unknown) {
           reject(error);
@@ -103,8 +98,6 @@ function handleBrowserRequest(
   responseHeaders: Headers,
   remixContext: EntryContext
 ) {
-
-	
   return new Promise((resolve, reject) => {
     let shellRendered = false;
     const { pipe, abort } = renderToPipeableStream(
@@ -117,11 +110,11 @@ function handleBrowserRequest(
 				onShellReady() {
 					const head = renderHeadToString({ request, remixContext, Head });
 					const sheet = new ServerStyleSheet();
-					const markup = renderToString(
-						sheet.collectStyles(
-							<RemixServer context={remixContext} url={request.url} />
-						)
-					)
+					// const markup = renderToString(
+					// 	sheet.collectStyles(
+					// 		<RemixServer context={remixContext} url={request.url} />
+					// 	)
+					// )
 
           shellRendered = true;
           const body = new PassThrough();
@@ -145,7 +138,7 @@ function handleBrowserRequest(
 									${head}
 								</head>
 								<body>
-								<div id="root">${markup}`,
+								<div id="root">`,
           );
 					pipe(body);
           body.write(`</div></body></html>`);
