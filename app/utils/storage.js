@@ -15,5 +15,26 @@ export const getFromLS = (key) => {
 
   if (value) {
     return JSON.parse(value)
+  } else {
+    return {
+      'data': {
+        'primary': {
+          'id': 'prmry',
+          'name': 'Primary',
+          'colors': {
+            'body': '#202945',
+            'text': '#ccdbe5',
+            'button': {
+              'text': '#ccdbe5',
+              'background': 'bf4953',
+            },
+            'link': {
+              'text': '#bf4953',
+            },
+          },
+          'font': 'Lato',
+        },
+      },
+    }
   }
 }

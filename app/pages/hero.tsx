@@ -21,18 +21,10 @@ const Hero: FC<HeroProps> = ({ activePage }) => {
           <div>
             <Button
               primary
-              to="portfolio"
-              smooth={true}
-              duration={500}
-              spy={true}
               text="VIEW MY WORK"
               activePage={activePage}
             />
             <Button
-              to="about"
-              smooth={true}
-              duration={500}
-              spy={true}
               text="MORE ABOUT ME"
               activePage={activePage}
             />

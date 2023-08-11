@@ -54,10 +54,14 @@ export default function TestingIndex() {
 		<main>
 			{loading === false ? (
 				<>
-					<Hero />
-					<About />
-					<Experience />
-					<Portfolio />
+					{themeLoaded && (
+						<ThemeProvider theme={selectedTheme}>
+							<Hero />
+							<About />
+							<Experience />
+							<Portfolio />
+						</ThemeProvider>
+					)}
 				</>
 			) : ( <Loader />)}
     </main>

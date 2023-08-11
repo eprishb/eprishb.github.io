@@ -1,40 +1,23 @@
-import React, {FC} from 'react'
-import { Link } from 'react-scroll'
-import { motion } from 'framer-motion'
+import type {FC} from 'react'
 import styled from 'styled-components'
 
 type ButtonProps = {
 	primary?: boolean;
-	to: string;
-	page?: string;
 	onClick?: (e: any) => void;
-	smooth: boolean;
-	duration: number;
-	spy: boolean;
 	text?: string;
 	activePage?: any;
 }
 
-const Button: FC<ButtonProps> = ({ primary, to, smooth, duration, spy, text, activePage }) => {
+const Button: FC<ButtonProps> = ({ primary, text, activePage }) => {
 	return (
-		<motion.button
-			whileHover={{scale: 1.1}}
-			whileTap={{scale: 0.9}}
+		<ButtonComp
+			primary
+			onClick={(e) => {
+				activePage(e.target.getAttribute("page"));
+			}}
 		>
-			<ButtonComp
-				primary={primary}
-				to={to}
-				page={to}
-				onClick={(e) => {
-					activePage(e.target.getAttribute("page"));
-				}}
-				smooth={smooth}
-				duration={duration}
-				spy={spy}
-			>
-				{text}
-			</ButtonComp>
-		</motion.button>
+			{text}
+		</ButtonComp>
 	)
 }
 
