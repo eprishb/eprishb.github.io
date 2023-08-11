@@ -51,17 +51,13 @@ export default function TestingIndex() {
   }, [themeLoaded])
 	
   return (
-		<main style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
+		<main>
 			{loading === false ? (
 				<>
-					{ themeLoaded && (
-						<ThemeProvider theme={selectedTheme}>
-							<Hero />
-							<About />
-							<Experience />
-							<Portfolio />
-						</ThemeProvider>
-						)}
+					<Hero />
+					<About />
+					<Experience />
+					<Portfolio />
 				</>
 			) : ( <Loader />)}
     </main>

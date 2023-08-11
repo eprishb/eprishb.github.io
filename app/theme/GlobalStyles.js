@@ -6,6 +6,7 @@ export const GlobalStyles = createGlobalStyle`
     color: #ccdbe5;
     font-family: Lato;
     transition: all 0.50s linear;
+		margin: 0;
   }
 
 	button {
