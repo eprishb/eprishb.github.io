@@ -1,11 +1,13 @@
+import type { FC } from 'react'
 import styled from 'styled-components'
+import Button from '~/components/base/Button'
 import HeroImage from '~/assets/profile_web.png'
 
-// type HeroProps = {
-// 	activePage: any;
-// }
+type HeroProps = {
+	activePage: any;
+}
 
-const Hero = () => {
+const Hero: FC<HeroProps> = ({ activePage }) => {
   return (
     <Jumbotron id="hero">
       <Container>
@@ -16,7 +18,7 @@ const Hero = () => {
             <span>&</span> Visual
           </H3>
           <Para className="second">Problem Solver</Para>
-          {/* <div>
+          <div>
             <Button
               primary
               to="portfolio"
@@ -34,7 +36,7 @@ const Hero = () => {
               text="MORE ABOUT ME"
               activePage={activePage}
             />
-          </div> */}
+          </div>
         </HeroContent>
       </Container>
     </Jumbotron>
