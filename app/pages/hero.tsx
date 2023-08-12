@@ -20,7 +20,6 @@ const Hero: FC<HeroProps> = ({ activePage }) => {
           <Para className="second">Problem Solver</Para>
           <div>
             <Button
-              primary
               text="VIEW MY WORK"
               activePage={activePage}
             />
@@ -75,7 +74,6 @@ const H3 = styled.h3`
 
   span {
     font-family: 'Playfair Display', serif;
-    color: '#BF4953';
   }
 `
 

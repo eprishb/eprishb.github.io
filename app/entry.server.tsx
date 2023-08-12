@@ -10,10 +10,11 @@ import type { AppLoadContext, EntryContext } from "@remix-run/node";
 import { Response } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
 import isbot from "isbot";
-import { renderToPipeableStream } from "react-dom/server";
+import { renderToPipeableStream, renderToString } from "react-dom/server";
 import { renderHeadToString } from 'remix-island';
 import { ServerStyleSheet } from "styled-components";
 import { Head } from "./root";
+import { GlobalStyles } from "./theme/GlobalStyles";
 
 const ABORT_DELAY = 5_000;
 const COMMON_HEAD = `
@@ -59,6 +60,7 @@ function handleBotRequest(
       />,
       {
 				onAllReady() {
+					const head = renderHeadToString({ request, remixContext, Head });
           shellRendered = true;
           const body = new PassThrough();
 
@@ -71,7 +73,11 @@ function handleBotRequest(
             })
           );
 
+					body.write(
+            `<!DOCTYPE html><html><head>${head}</head><body><div id="root">`,
+          );
 					pipe(body);
+					body.write(`</div></body></html>`);
         },
         onShellError(error: unknown) {
           reject(error);
@@ -98,6 +104,7 @@ function handleBrowserRequest(
   responseHeaders: Headers,
   remixContext: EntryContext
 ) {
+
   return new Promise((resolve, reject) => {
     let shellRendered = false;
     const { pipe, abort } = renderToPipeableStream(
@@ -110,17 +117,14 @@ function handleBrowserRequest(
 				onShellReady() {
 					const head = renderHeadToString({ request, remixContext, Head });
 					const sheet = new ServerStyleSheet();
-					// const markup = renderToString(
-					// 	sheet.collectStyles(
-					// 		<RemixServer context={remixContext} url={request.url} />
-					// 	)
-					// )
+					const globalStyles = renderToString(sheet.collectStyles(<GlobalStyles />))
+					
 
           shellRendered = true;
           const body = new PassThrough();
 
 					responseHeaders.set("Content-Type", "text/html");
-					const styledComponentStyles = sheet.getStyleTags();
+					const styles = sheet.getStyleTags();
 
           resolve(
             new Response(body, {
@@ -134,7 +138,8 @@ function handleBrowserRequest(
 							<html lang="en">
 								<head>
 									${COMMON_HEAD}
-									${styledComponentStyles}
+									${globalStyles}
+									${styles}
 									${head}
 								</head>
 								<body>

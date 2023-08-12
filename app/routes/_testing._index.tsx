@@ -41,6 +41,16 @@ export default function TestingIndex() {
   const { theme, themeLoaded } = useTheme()
   const [selectedTheme, setSelectedTheme] = useState(theme)
 	const [loading, setLoading] = useState(true)
+	// Default active page - hero
+	const [activePage, setActivePage] = useState('hero')
+	
+	// Updates active page based on selection in sidebar or menu, or in view
+  const updateActivePage = (page: string, e: any) => {
+    console.log(page, e)
+    if (e) setActivePage(page)
+    else if (e === undefined) setActivePage(page.toLowerCase())
+    return
+  }
 	
 	useEffect(() => {
     setTimeout(() => setLoading(false), 2000)
@@ -54,14 +64,10 @@ export default function TestingIndex() {
 		<main>
 			{loading === false ? (
 				<>
-					{themeLoaded && (
-						<ThemeProvider theme={selectedTheme}>
-							<Hero />
-							<About />
-							<Experience />
-							<Portfolio />
-						</ThemeProvider>
-					)}
+					<Hero activePage={updateActivePage} />
+					<About />
+					<Experience />
+					<Portfolio />
 				</>
 			) : ( <Loader />)}
     </main>
