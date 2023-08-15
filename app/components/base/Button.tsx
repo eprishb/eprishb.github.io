@@ -2,26 +2,25 @@ import type {FC} from 'react'
 import styled from 'styled-components'
 
 type ButtonProps = {
-	onClick?: (e: any) => void;
+	onClick?: () => void;
 	text?: string;
 	activePage?: any;
+	children: string | string[] | JSX.Element | JSX.Element[] | (string | JSX.Element)[];
 }
 
-const Button: FC<ButtonProps> = ({ text, activePage }) => {
+const Button: FC<ButtonProps> = ({ onClick, text, activePage, children }) => {
 	return (
 		<ButtonComp
-			onClick={(e) => {
-				activePage(e.target.getAttribute("page"));
-			}}
+			onClick = {onClick}
 		>
-			{text}
+			{children}
 		</ButtonComp>
 	)
 }
 
 export default Button
 
-const ButtonComp = styled.a<ButtonProps> `
+const ButtonComp = styled.button<ButtonProps> `
 	background: #BF4953;
 	color: #ccdbe5;
 	width: 150px;

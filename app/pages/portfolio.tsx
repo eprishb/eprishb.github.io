@@ -1,14 +1,17 @@
 import type { FC } from 'react'
 import styled from 'styled-components'
 import Projects from '~/components/Projects/Projects'
+import { useScrollIntoView } from '~/hooks/useScrollIntoView'
 
 // type PortfolioProps = {
 // 	toggleModal: any;
 // }
 
 const Portfolio: FC = () => {
+	const portRef = useScrollIntoView('portfolio')
+	
   return (
-    <Section id="portfolio">
+    <Section id="portfolio" ref={portRef}>
       <Container>
         <Typography>Portfolio</Typography>
         <Projects />

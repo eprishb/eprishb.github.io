@@ -15,6 +15,7 @@ import { renderHeadToString } from 'remix-island';
 import { ServerStyleSheet } from "styled-components";
 import { Head } from "./root";
 import { GlobalStyles } from "./theme/GlobalStyles";
+import baseCss from "./base.css";
 
 const ABORT_DELAY = 5_000;
 const COMMON_HEAD = `
@@ -117,7 +118,7 @@ function handleBrowserRequest(
 				onShellReady() {
 					const head = renderHeadToString({ request, remixContext, Head });
 					const sheet = new ServerStyleSheet();
-					const globalStyles = renderToString(sheet.collectStyles(<GlobalStyles />))
+					renderToString(sheet.collectStyles(<GlobalStyles />))
 					
 
           shellRendered = true;
@@ -138,7 +139,7 @@ function handleBrowserRequest(
 							<html lang="en">
 								<head>
 									${COMMON_HEAD}
-									${globalStyles}
+									<link rel="stylesheet" href="${baseCss}">
 									${styles}
 									${head}
 								</head>

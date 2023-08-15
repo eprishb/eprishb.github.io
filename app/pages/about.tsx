@@ -1,10 +1,12 @@
 import styled from 'styled-components'
 import profile from '~/assets/EprisHB.png'
+import { useScrollIntoView } from '~/hooks/useScrollIntoView'
 
 const About = () => {
+	const aboutRef = useScrollIntoView('about')
 
 	return (
-		<Section id="about">
+		<Section id="about" ref={aboutRef}>
 			<Container>
 				<Profile>
 					<img src={profile} alt="Epris HB" style={{width: 300, height:'auto'}} />

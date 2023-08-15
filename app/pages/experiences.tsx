@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { useLoaderData} from '@remix-run/react'
+import { useScrollIntoView } from '~/hooks/useScrollIntoView'
 
 // type ExperienceProps = {
 // 	descriptions: Array;
@@ -8,9 +9,10 @@ import { useLoaderData} from '@remix-run/react'
 
 export default function Experience() {
 	const { jobImgs } = useLoaderData()
+	const expRef = useScrollIntoView('experience')
 
 	return (
-    <Section id="experience">
+    <Section id="experience" ref={expRef}>
       <Container>
         <Heading>Work Experience</Heading>
         <ExperienceDetails>

@@ -1,15 +1,16 @@
-import type { FC } from 'react'
+import { useContext } from 'react'
 import styled from 'styled-components'
 import Button from '~/components/base/Button'
 import HeroImage from '~/assets/profile_web.png'
+import { NavContext } from '~/context/NavContext'
+import { useScrollIntoView } from '~/hooks/useScrollIntoView'
 
-type HeroProps = {
-	activePage: any;
-}
-
-const Hero: FC<HeroProps> = ({ activePage }) => {
-  return (
-    <Jumbotron id="hero">
+const Hero = () => {
+	const { dispatch } = useContext(NavContext)
+	const heroRef = useScrollIntoView('hero')
+  
+	return (
+    <Jumbotron id="hero" ref={heroRef}>
       <Container>
         <HeroContent>
           <Para className="main">Hi! I'm &Eacute;pris. I am a ... </Para>
@@ -20,13 +21,15 @@ const Hero: FC<HeroProps> = ({ activePage }) => {
           <Para className="second">Problem Solver</Para>
           <div>
             <Button
-              text="VIEW MY WORK"
-              activePage={activePage}
-            />
+              onClick={() => dispatch({ type: "UPDATE_PAGE", payload: 'portfolio' })}
+						>
+							VIEW MY WORK
+            </Button>
             <Button
-              text="MORE ABOUT ME"
-              activePage={activePage}
-            />
+              onClick={() => dispatch({ type: "UPDATE_PAGE", payload: 'about' })}
+						>
+							MORE ABOUT ME
+            </Button>
           </div>
         </HeroContent>
       </Container>
