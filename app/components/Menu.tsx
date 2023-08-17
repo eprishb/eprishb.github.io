@@ -35,7 +35,7 @@ const Menu: FC<MenuProps> = ({ isOpen, toggleMenu }) => {
 						</MenuLink>
 					))}
           <Resume>
-            <a href="./EprisHBResume.pdf" download>
+            <a href="./EprisR-Resume.pdf" download>
               {' '}
               RESUM&Eacute;{' '}
             </a>
