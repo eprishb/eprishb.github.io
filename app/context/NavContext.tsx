@@ -25,7 +25,6 @@ const NavProvider = ({ children }: any) => {
 export default NavProvider
 
 export const NavReducer = (state: any, action: any) => {
-	console.log("Nav context updated to: ", action.payload)
 	switch (action.type) {
 		case 'UPDATE_PAGE':
 			return {

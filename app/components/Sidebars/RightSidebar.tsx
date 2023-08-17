@@ -15,11 +15,9 @@ const RightSidebar = () => {
     dispatch({ type: 'UPDATE_PAGE', payload: pageId })
 		document.getElementById(pageId.toLowerCase())?.scrollIntoView({ behavior: "smooth" })
 		setSelected(pageId)
-		console.log(pageId, "updated from right sidebar click")
   }
 
 	useEffect(() => {
-		if(activePage !== '') console.log(activePage, "updated from menu or scroll")
 		setSelected(activePage)
   }, [activePage])
 

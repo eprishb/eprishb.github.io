@@ -15,7 +15,6 @@ const Menu: FC<MenuProps> = ({ isOpen, toggleMenu }) => {
 	
 	const handleClickLink = (page: string) => {
 		document.getElementById(page.toLowerCase())?.scrollIntoView({ behavior: "smooth" })
-		console.log(page, "updated from menu click")
 		dispatch({ type: 'UPDATE_PAGE', payload: page })
 	}
 

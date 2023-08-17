@@ -1,15 +1,21 @@
+import type { FC } from 'react'
 import { useLoaderData } from '@remix-run/react'
 import styled from 'styled-components'
 
-export default function Projects() {
-	const { imgs } = useLoaderData()
+type ProjectsProps = {
+	toggleModal: ((type?: string, e?: any) => void);
+}
+
+const Projects: FC<ProjectsProps> = ({ toggleModal }) => {
+	const { projThumbs } = useLoaderData()
 
   return (
     <Project>
-      {imgs.map((image: any, index: number) => (
+      {projThumbs.map((image: any, index: number) => (
         <Card
           key={index}
-          id={image.id}
+					id={image.id}
+					onClick={(e) => toggleModal('portfolio', e.currentTarget)}
         >
           <img src={image.src} alt={image.id} />
           {image.title}
@@ -20,6 +26,8 @@ export default function Projects() {
     </Project>
   )
 }
+
+export default Projects
 
 const Project = styled.div`
   display: flex;

@@ -3,7 +3,7 @@ import type { V2_MetaFunction } from "@remix-run/node";
 import { useEffect, useState } from 'react'
 import { json } from '@remix-run/node'
 import { getExperienceDescriptions, getProjectDescriptions } from '~/models/description.server'
-import { getImages, getFeatImages, getJobImages, getProjectImages, getThemeIcons } from "~/models/image.server";
+import { getFeatProjects, getProjectImages, getThemeIcons, getProjThumbs, getJobs } from "~/models/cardDetails.server";
 import styled from "styled-components";
 
 // import { ThemeProvider } from 'styled-components'
@@ -18,6 +18,7 @@ import Portfolio from "~/pages/Portfolio";
 import Header from "~/components/Header";
 import Footer from "~/components/Footer";
 import Sidebars from "~/components/Sidebars/Sidebars";
+import Modal from "~/components/Modals/Modal";
 
 export const meta: V2_MetaFunction = () => {
   return [
@@ -27,17 +28,17 @@ export const meta: V2_MetaFunction = () => {
 };
 
 export const loader = async () => {
-	const [expDescs, projDescs, imgs, featImgs, jobImgs, projImgs, themeIcons] = await Promise.all([
+	const [expDescs, projDescs, projThumbs, featProjs, jobs, projImgs, themeIcons] = await Promise.all([
 		getExperienceDescriptions(),
 		getProjectDescriptions(),
-		getImages(),
-		getFeatImages(),
-		getJobImages(),
+		getProjThumbs(),
+		getFeatProjects(),
+		getJobs(),
 		getProjectImages(),
 		getThemeIcons(),
 	])
 
-	return json({ expDescs, projDescs, imgs, featImgs, jobImgs, projImgs, themeIcons })
+	return json({ expDescs, projDescs, projThumbs, featProjs, jobs, projImgs, themeIcons })
 }
 
 export default function TestingIndex() {
@@ -45,6 +46,17 @@ export default function TestingIndex() {
 	// const { theme, themeLoaded } = useTheme()
 	// const [selectedTheme, setSelectedTheme] = useState(theme)
 	const [loading, setLoading] = useState(true)
+
+	// Modal on experience and portfolio cards
+  const [showModal, setShowModal] = useState(false)
+	const [modalContent, setModalContent] = useState({})
+	
+	// Toggle modal
+  const toggleModal = (type: string | undefined, e: any) => {
+		setShowModal(!showModal)
+    setModalContent({ id: e?.id, type: type })
+  }
+
 	
 	useEffect(() => {
     setTimeout(() => setLoading(false), 2000)
@@ -61,10 +73,15 @@ export default function TestingIndex() {
 					<Wrapper>
 						<Header />
 						<Sidebars />
+						<Modal
+							showModal={showModal}
+							toggleModal={toggleModal}
+							content={modalContent}
+						/>
 						<Hero />
 						<About />
-						<Experience />
-						<Portfolio />
+						<Experience toggleModal={toggleModal} />
+						<Portfolio toggleModal={toggleModal} />
 						<Footer />
 					</Wrapper>
 				) : (<Loader />)}
