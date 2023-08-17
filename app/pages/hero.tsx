@@ -8,7 +8,13 @@ import { useScrollIntoView } from '~/hooks/useScrollIntoView'
 const Hero = () => {
 	const { dispatch } = useContext(NavContext)
 	const heroRef = useScrollIntoView('hero')
-  
+
+	const handleScrollToSection = (pageId: string) => {
+		dispatch({ type: "UPDATE_PAGE", payload: pageId })
+		document.getElementById(pageId.toLowerCase())?.scrollIntoView({ behavior: "smooth" })
+	}
+
+	console.log('test')
 	return (
     <Jumbotron id="hero" ref={heroRef}>
       <Container>
@@ -21,12 +27,12 @@ const Hero = () => {
           <Para className="second">Problem Solver</Para>
           <div>
             <Button
-              onClick={() => dispatch({ type: "UPDATE_PAGE", payload: 'portfolio' })}
+              onClick={() => handleScrollToSection('portfolio')}
 						>
 							VIEW MY WORK
             </Button>
             <Button
-              onClick={() => dispatch({ type: "UPDATE_PAGE", payload: 'about' })}
+              onClick={() => handleScrollToSection('about')}
 						>
 							MORE ABOUT ME
             </Button>
