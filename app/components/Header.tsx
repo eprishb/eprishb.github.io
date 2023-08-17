@@ -42,7 +42,7 @@ const Header = () => {
           <img src={logo} alt="Seven Times Design" />
         </LogoButton>
         {/* <ThemeSelector setter={setter} /> */}
-				<MenuButton onClick={toggleMenu}>
+				<MenuButton onClick={toggleMenu} icon>
 					<RxHamburgerMenu />
         </MenuButton>
       </Bar>
@@ -72,6 +72,7 @@ const Nav = styled.nav<{ $scrollNav?: boolean; }>`
 const Bar = styled.div`
   display: flex;
   justify-content: space-between;
+	align-items: center;
   height: 64px;
   width: 100%;
   padding: 0;
