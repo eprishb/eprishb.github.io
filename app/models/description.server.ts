@@ -17,12 +17,12 @@ export async function getExperienceDescriptions(): Promise<Array<Description>> {
 			desc: `
 				<ul>
 					<li>
-						Design vouchers and business cards cohesive to the Palace brands in
-						Photoshop and Illustrator
+						Designed vouchers and business cards cohesive to the Palace brands in
+						Photoshop and Illustrator.
 					</li>
 					<li>
-						Worked with creative director to keep printing and copy write errors
-						to a minimum
+						Worked with creative director to keep printing and copy-write errors
+						to a minimum.
 					</li>
 				</ul>
 			`
@@ -101,16 +101,16 @@ export async function getExperienceDescriptions(): Promise<Array<Description>> {
 					</li>
 					<li>
 						Integrate HubSpot into sites for automated email, marketing processes,
-						and form capturing
+						and form capturing.
 					</li>
 					<li>
 						Utilize Hubspot to develop custom templates, create landing pages, and
-						create lead capturing forms
+						create lead capturing forms.
 					</li>
 					<li>
 						Assist graphic designers with heavy workloads by creating web banners,
 						optimizing images for web, and developing catalogs and deliverables to
-						keep customers informed on the latest products and industry standards
+						keep customers informed on the latest products and industry standards.
 					</li>
 				</ul>
 			`,
