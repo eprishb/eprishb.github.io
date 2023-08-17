@@ -24,9 +24,9 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 )), __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: !0 }), mod);
 
-// css-bundle-update-plugin-ns:/mnt/c/Users/epris/Documents/Portfolio/seven-times-design-next/node_modules/@remix-run/css-bundle/dist/index.js
+// css-bundle-update-plugin-ns:C:\Users\epris\Documents\Portfolio\seven-times-design-next\node_modules\@remix-run\css-bundle\dist\index.js
 var require_dist = __commonJS({
-  "css-bundle-update-plugin-ns:/mnt/c/Users/epris/Documents/Portfolio/seven-times-design-next/node_modules/@remix-run/css-bundle/dist/index.js"(exports) {
+  "css-bundle-update-plugin-ns:C:\\Users\\epris\\Documents\\Portfolio\\seven-times-design-next\\node_modules\\@remix-run\\css-bundle\\dist\\index.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: !0 });
     var cssBundleHref2;
@@ -2250,10 +2250,10 @@ var Wrapper2 = import_styled_components19.default.div`
 `;
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { entry: { module: "/build/entry.client-W42L5QB5.js", imports: ["/build/_shared/chunk-RV3YLKEM.js", "/build/_shared/chunk-O7F4GFJQ.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-I4PGCFUT.js", imports: ["/build/_shared/chunk-WNWCRKWX.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !0, hasErrorBoundary: !1 }, "routes/_testing._index": { id: "routes/_testing._index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_testing._index-RMJXVEGH.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, version: "4e1259f0", hmr: void 0, url: "/build/manifest-4E1259F0.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-W42L5QB5.js", imports: ["/build/_shared/chunk-RV3YLKEM.js", "/build/_shared/chunk-O7F4GFJQ.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-G4QAQIKZ.js", imports: ["/build/_shared/chunk-WNWCRKWX.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !0, hasErrorBoundary: !1 }, "routes/_testing._index": { id: "routes/_testing._index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_testing._index-RMJXVEGH.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, version: "95a5bdf4", hmr: void 0, url: "/build/manifest-95A5BDF4.js" };
 
 // server-entry-module:@remix-run/dev/server-build
-var assetsBuildDirectory = "public/build", future = { v2_dev: !0, unstable_postcss: !1, unstable_tailwind: !1, v2_errorBoundary: !0, v2_headers: !0, v2_meta: !0, v2_normalizeFormMethod: !0, v2_routeConvention: !0 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {
+var assetsBuildDirectory = "public\\build", future = { v2_dev: !0, unstable_postcss: !1, unstable_tailwind: !1, v2_errorBoundary: !0, v2_headers: !0, v2_meta: !0, v2_normalizeFormMethod: !0, v2_routeConvention: !0 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {
   root: {
     id: "root",
     parentId: void 0,
