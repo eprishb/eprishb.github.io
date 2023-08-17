@@ -35,14 +35,13 @@ export const links: LinksFunction = () => [
 	}
 ];
 
-export const Head = createHead(() => {
-	return (
+export const Head = createHead(() => (
 		<>
 			<Meta />
 			<Links />
 		</>
 	)
-})
+)
 
 export default function App() {
   return (

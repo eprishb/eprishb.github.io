@@ -117,15 +117,22 @@ function handleBrowserRequest(
       {
 				onShellReady() {
 					const head = renderHeadToString({ request, remixContext, Head });
+					
 					const sheet = new ServerStyleSheet();
 					renderToString(sheet.collectStyles(<GlobalStyles />))
+					renderToString(
+						sheet.collectStyles(
+							<RemixServer context={remixContext} url={request.url} />,
+						),
+					);
 					
-
           shellRendered = true;
           const body = new PassThrough();
 
 					responseHeaders.set("Content-Type", "text/html");
+					
 					const styles = sheet.getStyleTags();
+					sheet.seal()
 
           resolve(
             new Response(body, {
