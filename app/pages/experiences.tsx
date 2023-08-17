@@ -1,14 +1,33 @@
+import type {FC, ReactElement} from 'react'
+import { useLoaderData } from '@remix-run/react'
 import styled from 'styled-components'
-import { useLoaderData} from '@remix-run/react'
+import {
+	MdFace,
+  MdFireplace,
+	MdLocalDining,
+	MdOutlineOpenInNew,
+	MdSportsBasketball
+} from 'react-icons/md'
 import { useScrollIntoView } from '~/hooks/useScrollIntoView'
+type ExperienceProps = {
+	toggleModal: ((type?: string | undefined, e?: any) => void);
+}
 
-// type ExperienceProps = {
-// 	descriptions: Array;
-// 	toggleModal: any;
-// }
+type IconProps = {
+	id: string;
+	onClick: ((e?: any) => void);
+	children: Element | ReactElement;
+}
 
-export default function Experience() {
-	const { jobImgs } = useLoaderData()
+const stringToIcon : {[key: string]: any} = {
+	MdFace: <MdFace />,
+	MdFireplace: <MdFireplace />,
+	MdLocalDining: <MdLocalDining />,
+	MdSportsBasketball: <MdSportsBasketball />
+}
+
+const Experience: FC<ExperienceProps> = ({ toggleModal }) => {
+	const { jobs } = useLoaderData()
 	const expRef = useScrollIntoView('experience')
 
 	return (
@@ -16,18 +35,19 @@ export default function Experience() {
       <Container>
         <Heading>Work Experience</Heading>
         <ExperienceDetails>
-					{jobImgs.map((job: any, index: number) => (
+					{jobs.map((job: any, index: number) => (
             <Details
 							key={index}
-							// size={200}
-              // position={'relative'}
-              // background={''}
-              // whileHover={{
-              //   background: '#bf4953',
-              // }}
 						>
+							{stringToIcon[job.icon]}
               <Typography>{job.company}</Typography>
-              <Typography className="overline">{job.jobTitle}</Typography>
+							<Typography className="overline">{job.jobTitle}</Typography>
+							<Icon
+								id={job.company}
+								onClick={(e) => toggleModal('experience', e.currentTarget)}
+							>
+								<OpenInNewWindow />
+							</Icon>
             </Details>
           ))}
 				</ExperienceDetails>
@@ -35,6 +55,8 @@ export default function Experience() {
     </Section>
   )
 }
+
+export default Experience;
 
 const Section = styled.section`
   min-height: 100vh;
@@ -67,13 +89,18 @@ const ExperienceDetails = styled.div`
   justify-content: center;
 `
 const Details = styled.div`
+	height: 200px;
+	width: 200px;
   padding: 15px;
   margin: 20px;
   border: 1px solid #bf4953;
   border-top: 10px solid #bf4953;
-
   position: relative;
   overflow: hidden;
+
+	&:hover {
+		background-color: #bf4953;
+	}
 `
 const Typography = styled.p`
   font-weight: normal;
@@ -87,10 +114,15 @@ const Typography = styled.p`
     color: #ccdbe5;
   }
 `
-// const Launch = MaterialStyled(LaunchIcon)({
-//   fontSize: 18,
-//   position: 'absolute',
-//   bottom: 5,
-//   right: 5,
-//   cursor: 'pointer',
-// })
+
+const Icon = styled.div<IconProps>`
+	fontSize: 18px;
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+	cursor: pointer;
+`
+
+const OpenInNewWindow = styled(MdOutlineOpenInNew)`
+	color: #ccdbe5;
+`
