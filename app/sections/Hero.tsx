@@ -31,7 +31,8 @@ const Hero = () => {
 							VIEW MY WORK
             </Button>
             <Button
-              onClick={() => handleScrollToSection('about')}
+							onClick={() => handleScrollToSection('about')}
+							secondary
 						>
 							MORE ABOUT ME
             </Button>
