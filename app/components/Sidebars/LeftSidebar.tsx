@@ -18,7 +18,7 @@ const LeftSidebar = () => {
         </ListItem>
         <ListItem>
           <ListItemIcon>
-            <SocialButton href="https://github.com/eprishb" target="_blank">
+            <SocialButton href="https://github.com/eprisr" target="_blank">
               <FaGithubSquare />
             </SocialButton>
           </ListItemIcon>
