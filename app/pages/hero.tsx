@@ -14,7 +14,6 @@ const Hero = () => {
 		document.getElementById(pageId.toLowerCase())?.scrollIntoView({ behavior: "smooth" })
 	}
 
-	console.log('test')
 	return (
     <Jumbotron id="hero" ref={heroRef}>
       <Container>
