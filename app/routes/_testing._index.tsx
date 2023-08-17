@@ -22,8 +22,19 @@ import Modal from "~/components/Modals/Modal";
 
 export const meta: V2_MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "Seven Times Design" },
+		{ name: "description", content: "Web Development, Brand Strategy, and Graphic Design" },
+		{ property: "og:type", content: "website" },
+		{ property: "og:url", content: "https://eprisr.github.io/" },
+		{ property: "og:title", content: "Seven Times Design" },
+		{ property: "og:description", content: "Web Development, Brand Strategy, and Graphic Design" },
+		{ property: "og:image:url",	content: "http://eprisr.github.io/portfolio-social.jpg" },
+		{ property: "og:image:secure_url", content: "https://eprisr.github.io/portfolio-social.jpg" },
+		{ property: "twitter:card", content: "summary_large_image" },
+		{ property: "twitter:url", content: "https://eprisr.github.io/" },
+		{ property: "twitter:title", content: "Seven Times Design" },
+		{ property: "twitter:description", content: "Web Development, Brand Strategy, and Graphic Design" },
+		{ property: "twitter:image", content: "https://eprisr.github.io/portfolio-social.jpg" },
   ];
 };
 
