@@ -11,10 +11,10 @@ import styled from "styled-components";
 
 import Loader from '~/components/base/Loader'
 import NavProvider from "~/context/NavContext";
-import Hero from '~/pages/Hero'
-import About from "~/pages/About";
-import Experience from "~/pages/Experiences";
-import Portfolio from "~/pages/Portfolio";
+import Hero from '~/sections/Hero'
+import About from "~/sections/About";
+import Experience from "~/sections/Experiences";
+import Portfolio from "~/sections/Portfolio";
 import Header from "~/components/Header";
 import Footer from "~/components/Footer";
 import Sidebars from "~/components/Sidebars/Sidebars";
