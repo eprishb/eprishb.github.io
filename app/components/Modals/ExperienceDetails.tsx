@@ -67,11 +67,17 @@ const Detail = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+	max-height: calc(90vh - 64px - 64px);
 
   img {
-    max-width: 300px;
-    width: 80%;
+    max-width: 200px;
+    width: auto;
+		max-height: 200px;
   }
+
+	@media (min-width: 768px) {
+		max-height: 90vh;
+	}
 `
 const Date = styled.p`
   margin-bottom: 50px;
@@ -79,8 +85,26 @@ const Date = styled.p`
 const StyledDescription = styled.div`
   max-width: 600px;
   width: 80%;
+	height: 400px;
+	overflow-y: scroll;
 
   li {
     margin-bottom: 10px;
   }
+
+	&::-webkit-scrollbar-track {
+		border-radius: 10px;
+		background-color: rgb(44, 53, 81);
+	}
+
+	&::-webkit-scrollbar {
+		display: block;
+		width: 5px;
+		background-color: unset;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		border-radius: 10px;
+		background-color: rgb(60, 71, 99);
+	}
 `

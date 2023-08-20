@@ -78,7 +78,7 @@ export async function getExperienceDescriptions(): Promise<Array<Description>> {
 			id: 'brooks',
 			src: require('~/assets/img/brooks-logo.png'),
 			company: 'Brooks Equipment',
-			date: 'Feb 2019 - Present',
+			date: 'Feb 2019 - Jul 2022',
 			desc: `
 				<ul>
 					<li>
@@ -115,6 +115,23 @@ export async function getExperienceDescriptions(): Promise<Array<Description>> {
 				</ul>
 			`,
 		},
+		{
+			id: 'weco',
+			src: require('~/assets/img/weco-logo.png'),
+			company: 'WECO Hospitality',
+			date: 'Jul 2022 - Jul 2023',
+			desc: `
+				<ul>
+					<li>Collaborated with a small yet dynamic team to develop and enhance the technology stack to deliver a seamless and efficient online food service application for our customers.</li>
+					<li>Implemented a user-friendly signup/login process, allowing customers to authenticate using email, Google, and Facebook accounts, enhancing user convenience and engagement.</li>
+					<li>Implemented data handling by posting and fetching data from the backend API using Axios, ensuring real-time updates and seamless data synchronization between the client and server.</li>
+					<li>Integrated Google Maps and Autocomplete APIs to provide a user-friendly interface for customers to select pickup locations and delivery addresses quickly and conveniently.</li>
+					<li>Implemented Sentry to efficiently monitor and manage errors and exceptions.</li>
+					<li>Integrated Google Analytics to gain valuable insights into user behavior, product performance, and application usage, leading to data-driven decisions for continuous improvement.</li>
+					<li>Implemented Google Ads and Tag Manager, enabling seamless tracking of marketing campaigns and user interactions, resulting in optimized ad targeting and increased conversion rates.</li>
+				</ul>
+			`
+		}
 	];
 }
 

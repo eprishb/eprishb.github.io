@@ -8,6 +8,9 @@ import {
 	MdOutlineOpenInNew,
 	MdSportsBasketball
 } from 'react-icons/md'
+import {
+	TbTruckDelivery
+} from 'react-icons/tb'
 import { useScrollIntoView } from '~/hooks/useScrollIntoView'
 type ExperienceProps = {
 	toggleModal: ((type?: string | undefined, e?: any) => void);
@@ -23,7 +26,8 @@ const stringToIcon : {[key: string]: any} = {
 	MdFace: <MdFace />,
 	MdFireplace: <MdFireplace />,
 	MdLocalDining: <MdLocalDining />,
-	MdSportsBasketball: <MdSportsBasketball />
+	MdSportsBasketball: <MdSportsBasketball />,
+	TbTruckDelivery: <TbTruckDelivery />,
 }
 
 const Experience: FC<ExperienceProps> = ({ toggleModal }) => {

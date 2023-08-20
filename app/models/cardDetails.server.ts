@@ -210,7 +210,17 @@ export async function getProjectImages() {
 }
 
 export async function getJobs() {
-  return [
+	return [
+		{
+			id: 'weco',
+			cName: 'logo',
+			src: require('~/assets/img/weco-logo.png'),
+			title: 'WECO',
+			description: 'Logo',
+			icon: 'TbTruckDelivery',
+			company: 'WECO Hospitality',
+			jobTitle: 'Software Engineer',
+		},
     {
       id: 'brooks',
       cName: 'logo',
