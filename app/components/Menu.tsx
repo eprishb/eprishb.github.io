@@ -2,7 +2,8 @@ import { useContext } from 'react'
 import type { FC } from 'react'
 import styled from 'styled-components'
 import { NavContext } from '~/context/NavContext';
-import { MdOutlineClose } from 'react-icons/md'
+import { FaGithubSquare, FaLinkedin } from 'react-icons/fa'
+import { MdEmail, MdOutlineClose } from 'react-icons/md'
 
 type MenuProps = {
 	isOpen: boolean;
@@ -39,7 +40,22 @@ const Menu: FC<MenuProps> = ({ isOpen, toggleMenu }) => {
               {' '}
               RESUM&Eacute;{' '}
             </a>
-          </Resume>
+					</Resume>
+					<Social>
+						<SocialButton
+              href="mailto: eharrisburnett@gmail.com"
+              target="_blank">
+              <MdEmail />
+            </SocialButton>
+						<SocialButton href="https://github.com/eprisr" target="_blank">
+              <FaGithubSquare />
+						</SocialButton>
+						<SocialButton
+              href="https://linkedin.com/in/eprishb"
+              target="_blank">
+              <FaLinkedin />
+            </SocialButton>
+					</Social>
         </MenuItems>
       </MenuWrapper>
     </Container>
@@ -112,4 +128,34 @@ const Resume = styled.div`
   padding: 16px;
   border: 2px solid #bf4953;
   border-radius: 3px;
+`
+
+const Social = styled.div`
+	display: inline-flex;
+	flex: 0 0 auto;
+	align-items: center;
+	vertical-align: middle;
+	justify-content: center;
+	margin-top: 10px;
+
+	@media (min-width: 768px) {
+		display: none;
+	}
+`
+
+const SocialButton = styled.a`
+	padding: 12px;
+	text-decoration: none;
+	text-align: center;
+	color: #ccdbe5;
+	background-color: transparent;
+	transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+	overflow: visible;
+	border-radius: 50%;
+	border: 0;
+	cursor: pointer;
+	outline: 0;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	-webkit-tap-highlight-color: transparent;
 `
