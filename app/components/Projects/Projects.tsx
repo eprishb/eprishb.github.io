@@ -86,7 +86,7 @@ const Card = styled.div`
   text-align: center;
 	position: relative;
 	flex: 0 0 200px;
-	pointer: cursor;
+	cursor: pointer;
 
   img {
     max-width: 100%;

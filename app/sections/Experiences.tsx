@@ -116,6 +116,7 @@ const ExperienceDetails = styled.div <{ $width: string, $transform: string}>`
 	transform: ${props => props.$transform};
 	transition: .5s all linear;
 	will-change: transform;
+	cursor: pointer;
 
 	@media (min-width: 768px) {
 		width: 80%;

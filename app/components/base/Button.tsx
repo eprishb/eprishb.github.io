@@ -36,4 +36,5 @@ const ButtonComp = styled.button<{ $icon?: boolean; $secondary?: boolean }> `
 	padding: ${props => props.$icon ? 'unset' : '16px'};
 	border: ${props => props.$icon ? 'unset' : '2px solid #BF4953'};
 	border-radius: ${props => props.$icon ? 'unset' : '3px'};
+	cursor: pointer;
 `
