@@ -3,16 +3,18 @@ import styled from 'styled-components'
 
 type ButtonProps = {
 	onClick?: () => void;
-	text?: string;
+	// text?: string;
 	secondary?: boolean;
-	activePage?: any;
+	// activePage?: any;
 	icon?: boolean;
+	className?: string;
 	children: string | string[] | JSX.Element | JSX.Element[] | (string | JSX.Element)[];
 }
 
-const Button: FC<ButtonProps> = ({ onClick, text, secondary, activePage, icon, children }) => {
+const Button: FC<ButtonProps> = ({ onClick, secondary, icon, className, children }) => {
 	return (
 		<ButtonComp
+			className={className}
 			onClick={onClick}
 			$icon={icon}
 			$secondary={secondary}

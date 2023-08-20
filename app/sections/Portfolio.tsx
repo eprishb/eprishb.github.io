@@ -32,7 +32,6 @@ const Section = styled.section`
 
 const Container = styled.div`
   max-width: 1100px;
-  margin: 0 50px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
