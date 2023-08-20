@@ -31,15 +31,22 @@ const Section = styled.section`
 `
 
 const Container = styled.div`
-  max-width: 1100px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+	flex-direction: column;
+	max-width: calc(100vw - 20px);
+	margin: 0 10px;
+	position: relative;
+	overflow: hidden;
 
   @media screen and (min-width: 768px) {
-    margin: 0 150px;
+		position: unset;
+		overflow: unset;
   }
+
+	@media (min-width: 1200px) {
+		max-width: 1100px;
+		margin: 0 150px;
+	}
 `
 const Typography = styled.h4`
   font-size: 48px;

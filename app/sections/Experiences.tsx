@@ -55,7 +55,7 @@ const Experience: FC<ExperienceProps> = ({ toggleModal }) => {
     <Section id="experience" ref={expRef}>
       <Container>
         <Heading>Work Experience</Heading>
-				<ExperienceDetails id='exp-details' $width={expDetWidth} $transform={expDetTransform}>
+				<ExperienceDetails $width={expDetWidth} $transform={expDetTransform}>
 					{jobs.map((job: any, index: number) => (
             <Details
 							key={index}
@@ -130,15 +130,13 @@ const ExperienceDetails = styled.div <{ $width: string, $transform: string}>`
 	will-change: transform;
 
 	@media (min-width: 768px) {
-		&#exp-details {
-			width: 90vw;
-			flex-wrap: wrap;
-			justify-content: center;
-			margin-left: 0px;
-			transform: unset;
-			transition: unset;
-			will-change: unset;
-		}
+		width: 90vw;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin-left: 0px;
+		transform: unset;
+		transition: unset;
+		will-change: unset;
 	}
 `
 const Details = styled.div`
