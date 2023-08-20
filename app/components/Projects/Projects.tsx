@@ -34,7 +34,7 @@ const Projects: FC<ProjectsProps> = ({ toggleModal }) => {
 					<Card
 						key={index}
 						id={image.id}
-						onClick={(e) => toggleModal('portfolio', e.currentTarget)}
+						onClick={(e) => image.clickable && toggleModal('portfolio', e.currentTarget)}
 					>
 						<img src={image.src} alt={image.id} />
 						{image.title}
@@ -86,6 +86,7 @@ const Card = styled.div`
   text-align: center;
 	position: relative;
 	flex: 0 0 200px;
+	pointer: cursor;
 
   img {
     max-width: 100%;

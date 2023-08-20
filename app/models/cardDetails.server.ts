@@ -39,6 +39,7 @@ export async function getProjThumbs() {
       src: require('~/assets/img/SoSweet_Thumb.jpg'),
       title: 'So Sweet: Case Study',
       description: 'Brand Strategy',
+			clickable: false,
     },
     {
       id: 'mem',
@@ -46,6 +47,7 @@ export async function getProjThumbs() {
       src: require('~/assets/img/memory-game.png'),
       title: 'Memory Game',
       description: 'Javascript',
+			clickable: true,
     },
     {
       id: 'maps',
@@ -53,6 +55,7 @@ export async function getProjThumbs() {
       src: require('~/assets/img/neighborhood-maps.png'),
       title: 'Neighborhood Map',
       description: 'React.JS',
+			clickable: true,
     },
     {
       id: 'reads',
@@ -60,6 +63,7 @@ export async function getProjThumbs() {
       src: require('~/assets/img/my-reads.png'),
       title: 'My Reads',
       description: 'React.JS',
+			clickable: true,
     },
     {
       id: 'gm305',
@@ -67,6 +71,7 @@ export async function getProjThumbs() {
       src: require('~/assets/img/GM-Power-305x320.png'),
       title: 'GM Powertrain',
       description: 'Greeter Board Mini',
+			clickable: true,
     },
     {
       id: 'bala305',
@@ -74,6 +79,7 @@ export async function getProjThumbs() {
       src: require('~/assets/img/Balaboosta-305x320.png'),
       title: 'Balaboosta',
       description: 'POS Flyer & Motion Graphic',
+			clickable: true,
     },
     {
       id: 'ed305',
@@ -81,6 +87,7 @@ export async function getProjThumbs() {
       src: require('~/assets/img/Ed-Dining-305x320.png'),
       title: 'Educational Dining',
       description: 'Stationery Collateral',
+			clickable: true,
     },
     {
       id: 'cont305',
@@ -88,6 +95,7 @@ export async function getProjThumbs() {
       src: require('~/assets/img/Cont-Client-305x320.png'),
       title: 'Client Movie',
       description: 'Continental | Showcase',
+			clickable: true,
     },
     {
       id: 'luc305',
@@ -95,6 +103,7 @@ export async function getProjThumbs() {
       src: require('~/assets/img/Lucca-305x320.png'),
       title: 'Lucca | Italian Street Food',
       description: 'Motion Graphic Promo',
+			clickable: true,
     },
     {
       id: 'rof305',
@@ -102,6 +111,7 @@ export async function getProjThumbs() {
       src: require('~/assets/img/Rise-of-Fall-305x320.png'),
       title: 'The Rise of Fall Pasta',
       description: 'Point of Sales Flyer',
+			clickable: true,
     },
     {
       id: 'ap305',
@@ -109,6 +119,7 @@ export async function getProjThumbs() {
       src: require('~/assets/img/Andre-Port-305x320.png'),
       title: 'Portfolio Magazine',
       description: 'Assisting Art Director',
+			clickable: true,
     },
   ]
 }
