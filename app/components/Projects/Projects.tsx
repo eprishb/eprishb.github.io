@@ -68,9 +68,10 @@ const Project = styled.div<{ $width: string, $transform: string}>`
 	will-change: transform;
 
 	@media (min-width: 768px) {
-		width: 90vw;
+		width: 80%;
 		flex-wrap: wrap;
 		justify-content: center;
+		align-self: center;
 		margin-left: 0px;
 		transform: unset;
 		transition: unset;

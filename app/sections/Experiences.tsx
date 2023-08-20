@@ -88,10 +88,9 @@ const Experience: FC<ExperienceProps> = ({ toggleModal }) => {
 export default Experience;
 
 const Section = styled.section`
-  min-height: 100vh;
   display: grid;
   place-items: center;
-  padding-top: 64px;
+  margin-bottom: 80px;
   color: #ccdbe5;
 `
 const Container = styled.div`
@@ -130,9 +129,10 @@ const ExperienceDetails = styled.div <{ $width: string, $transform: string}>`
 	will-change: transform;
 
 	@media (min-width: 768px) {
-		width: 90vw;
+		width: 80%;
 		flex-wrap: wrap;
 		justify-content: center;
+		align-self: center;
 		margin-left: 0px;
 		transform: unset;
 		transition: unset;

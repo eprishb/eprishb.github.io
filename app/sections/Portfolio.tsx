@@ -26,7 +26,6 @@ const Section = styled.section`
   min-height: 100vh;
   display: grid;
   place-items: center;
-  padding-top: 80px;
   color: #ccdbe5;
 `
 
