@@ -1,4 +1,4 @@
-import {useEffect, useState, type FC, type ReactElement} from 'react'
+import { useEffect, useState, type FC } from 'react'
 import { useLoaderData } from '@remix-run/react'
 import styled from 'styled-components'
 import { BsCaretLeft, BsCaretRight } from 'react-icons/bs'
@@ -6,7 +6,6 @@ import {
 	MdFace,
   MdFireplace,
 	MdLocalDining,
-	MdOutlineOpenInNew,
 	MdSportsBasketball
 } from 'react-icons/md'
 import { TbTruckDelivery } from 'react-icons/tb'
@@ -15,12 +14,6 @@ import Button from '~/components/base/Button'
 
 type ExperienceProps = {
 	toggleModal: ((type?: string | undefined, e?: any) => void);
-}
-
-type IconProps = {
-	id: string;
-	onClick: ((e?: any) => void);
-	children: Element | ReactElement;
 }
 
 const stringToIcon : {[key: string]: any} = {
@@ -59,16 +52,12 @@ const Experience: FC<ExperienceProps> = ({ toggleModal }) => {
 					{jobs.map((job: any, index: number) => (
             <Details
 							key={index}
+							id={job.company}
+							onClick={(e) => toggleModal('experience', e.currentTarget)}
 						>
 							{stringToIcon[job.icon]}
               <Typography>{job.company}</Typography>
 							<Typography className="overline">{job.jobTitle}</Typography>
-							<Icon
-								id={job.company}
-								onClick={(e) => toggleModal('experience', e.currentTarget)}
-							>
-								<OpenInNewWindow />
-							</Icon>
             </Details>
           ))}
 				</ExperienceDetails>
@@ -191,16 +180,4 @@ const Typography = styled.p`
     top: 100px;
     color: #ccdbe5;
   }
-`
-
-const Icon = styled.div<IconProps>`
-	fontSize: 18px;
-	position: absolute;
-	bottom: 5px;
-	right: 5px;
-	cursor: pointer;
-`
-
-const OpenInNewWindow = styled(MdOutlineOpenInNew)`
-	color: #ccdbe5;
 `
