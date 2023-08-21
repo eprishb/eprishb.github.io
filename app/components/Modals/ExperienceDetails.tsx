@@ -83,7 +83,7 @@ const Date = styled.p`
   margin-bottom: 50px;
 `
 const StyledDescription = styled.div`
-  max-width: 600px;
+  max-width: 800px;
   width: 80%;
 	height: 400px;
 	overflow-y: auto;
