@@ -86,7 +86,11 @@ const StyledDescription = styled.div`
   max-width: 600px;
   width: 80%;
 	height: 400px;
-	overflow-y: scroll;
+	overflow-y: auto;
+
+	ul {
+		margin-right: 15px;
+	}
 
   li {
     margin-bottom: 10px;
