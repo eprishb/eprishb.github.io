@@ -79,8 +79,9 @@ export default Experience;
 const Section = styled.section`
   display: grid;
   place-items: center;
-  margin-bottom: 80px;
+  margin-top: 80px;
   color: #ccdbe5;
+	scroll-margin-top: 80px;
 `
 const Container = styled.div`
 	display: flex;

@@ -26,7 +26,9 @@ const Section = styled.section`
   min-height: 100vh;
   display: grid;
   place-items: center;
+	margin-top: 80px;
   color: #ccdbe5;
+	scroll-margin-top: 80px;
 `
 
 const Container = styled.div`

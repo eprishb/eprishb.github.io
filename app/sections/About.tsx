@@ -49,7 +49,6 @@ const Section = styled.section `
 	display: grid;
 	place-items: center;
 	min-height: 100vh;
-	margin: 80px 0;
 	color: #ccdbe5;
 `
 const Container = styled.div `
