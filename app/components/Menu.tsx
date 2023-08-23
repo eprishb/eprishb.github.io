@@ -65,6 +65,7 @@ export default Menu
 const Container = styled.aside <{ $isOpen: boolean; }>`
   display: block;
 	margin-right: 15px;
+	font-weight: 600;
 
 	@media (max-width: 767px) {
 		display: grid;

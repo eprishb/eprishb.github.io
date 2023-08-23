@@ -87,7 +87,7 @@ const LogoButton = styled.a`
   cursor: pointer;
 
   img {
-    width: 90px;
+    width: 110px;
     height: auto;
   }
 `
