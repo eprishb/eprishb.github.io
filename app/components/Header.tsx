@@ -107,4 +107,8 @@ const MenuButton = styled(Button)`
 	background: none;
 	border: none;
 	border-radius: unset;
+
+	@media (min-width: 768px) {
+		display: none;
+	}
 `
