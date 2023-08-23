@@ -1,9 +1,6 @@
-import { useContext } from 'react'
 import styled from 'styled-components'
-import { NavContext } from '~/context/NavContext'
 
 const Footer = () => {
-	const { activePage } = useContext(NavContext)
 	const copyrightYear = new Date().getFullYear();
 
 	return (
@@ -19,13 +16,6 @@ const Footer = () => {
 						All Rights Reserved.
 					</p>
 				</Copyright>
-				<PageCounter>
-					{activePage === 'hero' && 1}
-					{activePage === 'about' && 2}
-					{activePage === 'experience' && 3}
-					{activePage === 'portfolio' && 4}
-					/4
-				</PageCounter>
 			</Bar>
     </FooterCont>
   )
@@ -64,5 +54,3 @@ const Bar = styled.div`
 `
 
 const Copyright = styled.div``
-
-const PageCounter = styled.div``

@@ -17,7 +17,6 @@ import Experience from "~/sections/Experiences";
 import Portfolio from "~/sections/Portfolio";
 import Header from "~/components/Header";
 import Footer from "~/components/Footer";
-import Sidebars from "~/components/Sidebars/Sidebars";
 import Modal from "~/components/Modals/Modal";
 
 export const meta: V2_MetaFunction = () => {
@@ -83,7 +82,6 @@ export default function TestingIndex() {
 				{loading === false ? (
 					<Wrapper>
 						<Header />
-						<Sidebars />
 						<Modal
 							showModal={showModal}
 							toggleModal={toggleModal}

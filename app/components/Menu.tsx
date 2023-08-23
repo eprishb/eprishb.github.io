@@ -35,11 +35,9 @@ const Menu: FC<MenuProps> = ({ isOpen, toggleMenu }) => {
 							{page}
 						</MenuLink>
 					))}
-          <Resume>
-            <a href="./EprisR-Resume.pdf" download>
-              {' '}
-              RESUM&Eacute;{' '}
-            </a>
+					<Resume href="./EprisR-Resume.pdf" download>
+						{' '}
+						Resum&eacute;{' '}
 					</Resume>
 					<Social>
 						<SocialButton
@@ -65,19 +63,24 @@ const Menu: FC<MenuProps> = ({ isOpen, toggleMenu }) => {
 export default Menu
 
 const Container = styled.aside <{ $isOpen: boolean; }>`
-  display: grid;
-  place-items: center;
-  min-width: 300px;
-  max-width: 320px;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  right: 0;
-  background: #202945;
-  transition: 0.3s ease-in-out;
-  opacity: ${props => props.$isOpen ? '100%' : '0'};
-  top: ${props => props.$isOpen ? '0' : '-100%'};
-  z-index: 999;
+  display: block;
+	margin-right: 15px;
+
+	@media (max-width: 767px) {
+		display: grid;
+		place-items: center;
+		min-width: 300px;
+		max-width: 320px;
+		height: 100%;
+		margin-right: 0px;
+		position: fixed;
+		top: ${props => props.$isOpen ? '0' : '-100%'};
+		right: 0;
+		background: #202945;
+		transition: 0.3s ease-in-out;
+		opacity: ${props => props.$isOpen ? '100%' : '0'};
+		z-index: 999;
+	}
 `
 const Icon = styled.div`
   position: absolute;
@@ -85,6 +88,10 @@ const Icon = styled.div`
   right: 18px;
   background: transparent;
   cursor: pointer;
+
+	@media (min-width: 768px) {
+		display: none;
+	}
 `
 
 const ClosingIcon = styled(MdOutlineClose)`
@@ -99,6 +106,10 @@ const MenuItems = styled.ul`
   display: flex;
   flex-direction: column;
   text-align: center;
+
+	@media (min-width: 768px) {
+		flex-direction: row;
+	}
 `
 const MenuLink = styled.a`
   padding: 20px;
@@ -116,30 +127,37 @@ const MenuLink = styled.a`
     font-style: italic;
   }
 `
-const Resume = styled.div`
-  background: #BF4953;
-  a {
-    color: #ccdbe5;
-    text-decoration: none;
-  }
+const Resume = styled.a`
+	padding: 20px;
+	transition: 0.2s ease-in-out;
+	color: #ccdbe5;
+	cursor: pointer;
+	text-decoration: none;
 
-  width: 150px;
-  font-size: calc(10px + (12 - 10) * (100vw - 320px) / (1200 - 320));
-  padding: 16px;
-  border: 2px solid #bf4953;
-  border-radius: 3px;
+	@media (max-width: 767px) {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: #BF4953;
+		color: #ccdbe5;
+		text-transform: uppercase;
+		width: 150px;
+		height: 60px;
+		font-size: calc(10px + (12 - 10) * (100vw - 320px) / (1200 - 320));
+		padding: 16px;
+		border: 2px solid #bf4953;
+		border-radius: 3px;
+	}
 `
 
 const Social = styled.div`
 	display: inline-flex;
-	flex: 0 0 auto;
 	align-items: center;
-	vertical-align: middle;
 	justify-content: center;
-	margin-top: 10px;
 
-	@media (min-width: 768px) {
-		display: none;
+	@media (min-width: 767px) {
+		margin-top: 0px;
+		justify-content: start;
 	}
 `
 
@@ -158,4 +176,8 @@ const SocialButton = styled.a`
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	-webkit-tap-highlight-color: transparent;
+
+	svg {
+		vertical-align: bottom;
+	}
 `
