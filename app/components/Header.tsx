@@ -54,7 +54,7 @@ const Header = () => {
 export default Header
 
 const Nav = styled.nav<{ $scrollNav?: boolean; }>`
-	background: ${props => props.$scrollNav ? 'rgb(32,41,69)' : 'transparent'};
+	background: #ccdbe5;
 	height: 64px;
 	width: 100%;
 	display: flex;

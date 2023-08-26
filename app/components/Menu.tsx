@@ -100,7 +100,7 @@ const ClosingIcon = styled(MdOutlineClose)`
 `
 
 const MenuWrapper = styled.div`
-  color: #ccdbe5;
+  color: #202945;
 `
 
 const MenuItems = styled.ul`
@@ -115,7 +115,7 @@ const MenuItems = styled.ul`
 const MenuLink = styled.a`
   padding: 20px;
   transition: 0.2s ease-in-out;
-  color: #ccdbe5;
+  color: #202945;
   cursor: pointer;
 
   &:hover {
@@ -131,7 +131,7 @@ const MenuLink = styled.a`
 const Resume = styled.a`
 	padding: 20px;
 	transition: 0.2s ease-in-out;
-	color: #ccdbe5;
+	color: #202945;
 	cursor: pointer;
 	text-decoration: none;
 
@@ -166,7 +166,7 @@ const SocialButton = styled.a`
 	padding: 12px;
 	text-decoration: none;
 	text-align: center;
-	color: #ccdbe5;
+	color: #202945;
 	background-color: transparent;
 	transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 	overflow: visible;
