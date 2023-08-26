@@ -1,6 +1,7 @@
 import type { FC } from 'react'
 import styled from 'styled-components'
 import Projects from '~/components/Projects/Projects'
+import Container from '~/components/base/Container'
 import { useScrollIntoView } from '~/hooks/useScrollIntoView'
 
 type PortfolioProps = {
@@ -12,10 +13,10 @@ const Portfolio: FC<PortfolioProps> = ({ toggleModal }) => {
 	
   return (
     <Section id="portfolio" ref={portRef}>
-      <Container>
+      <StyledContainer>
         <Typography>Portfolio</Typography>
         <Projects toggleModal={toggleModal} />
-      </Container>
+      </StyledContainer>
     </Section>
   )
 }
@@ -31,11 +32,10 @@ const Section = styled.section`
 	scroll-margin-top: 80px;
 `
 
-const Container = styled.div`
+const StyledContainer = styled(Container)`
   display: flex;
 	flex-direction: column;
 	max-width: calc(100vw - 20px);
-	margin: 0 10px;
 	position: relative;
 	overflow: hidden;
 
@@ -43,12 +43,8 @@ const Container = styled.div`
 		position: unset;
 		overflow: unset;
   }
-
-	@media (min-width: 1200px) {
-		max-width: 1100px;
-		margin: 0 150px;
-	}
 `
+
 const Typography = styled.h4`
   font-size: 48px;
   font-family: 'Playfair Display', Serif;

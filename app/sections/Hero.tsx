@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import styled from 'styled-components'
 import Button from '~/components/base/Button'
+import Container from '~/components/base/Container'
 import HeroImage from '~/assets/profile_web.png'
 import { NavContext } from '~/context/NavContext'
 import { useScrollIntoView } from '~/hooks/useScrollIntoView'
@@ -49,14 +50,6 @@ const Jumbotron = styled.section`
   height: 100vh;
 	background-image: url(${HeroImage});
   background-size: cover;
-`
-const Container = styled.div`
-  max-width: 1100px;
-  margin: 0 50px;
-
-  @media screen and (min-width: 768px) {
-    margin: 0 150px;
-  }
 `
 
 const HeroContent = styled.div`

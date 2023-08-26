@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import profile from '~/assets/EprisR.jpg'
+import Container from '~/components/base/Container'
 import { useScrollIntoView } from '~/hooks/useScrollIntoView'
 
 const About = () => {
@@ -7,7 +8,7 @@ const About = () => {
 
 	return (
 		<Section id="about" ref={aboutRef}>
-			<Container>
+			<StyledContainer>
 				<Profile>
 					<img src={profile} alt="Epris R" style={{width: 300, height:'auto'}} />
 				</Profile>
@@ -38,7 +39,7 @@ const About = () => {
 						<li><span>Industries:</span> Food and Hospitality, Marketing and Branding</li>
 					</ul>
 				</Design>
-			</Container>
+			</StyledContainer>
 		</Section>
 	)
 }
@@ -51,16 +52,12 @@ const Section = styled.section `
 	min-height: 100vh;
 	color: #ccdbe5;
 `
-const Container = styled.div `
-	max-width: 1100px;
-	margin: 0 50px;
-
+const StyledContainer = styled(Container) `
 	> div {
 		margin-bottom: 20px;
 	}
 	
 	@media (min-width: 768px) {
-		margin: 0 150px;
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		grid-template-rows: max-content 1fr;

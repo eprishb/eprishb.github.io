@@ -11,6 +11,7 @@ import {
 import { TbTruckDelivery } from 'react-icons/tb'
 import { useScrollIntoView } from '~/hooks/useScrollIntoView'
 import Button from '~/components/base/Button'
+import Container from '~/components/base/Container'
 
 type ExperienceProps = {
 	toggleModal: ((type?: string | undefined, e?: any) => void);
@@ -46,7 +47,7 @@ const Experience: FC<ExperienceProps> = ({ toggleModal }) => {
 
 	return (
     <Section id="experience" ref={expRef}>
-      <Container>
+      <StyledContainer>
         <Heading>Work Experience</Heading>
 				<ExperienceDetails $width={expDetWidth} $transform={expDetTransform}>
 					{jobs.map((job: any, index: number) => (
@@ -69,7 +70,7 @@ const Experience: FC<ExperienceProps> = ({ toggleModal }) => {
 						<BsCaretRight onClick={next} />
 					</Button>
 				</Arrows>
-      </Container>
+      </StyledContainer>
     </Section>
   )
 }
@@ -83,11 +84,10 @@ const Section = styled.section`
   color: #ccdbe5;
 	scroll-margin-top: 80px;
 `
-const Container = styled.div`
+const StyledContainer = styled(Container)`
 	display: flex;
 	flex-direction: column;
 	max-width: calc(100vw - 20px);
-	margin: 0 10px;
 	position: relative;
 	overflow: hidden;
 
@@ -95,12 +95,8 @@ const Container = styled.div`
 		position: unset;
 		overflow: unset;
   }
-
-	@media (min-width: 1200px) {
-		max-width: 1100px;
-		margin: 0 150px;
-	}
 `
+
 const Heading = styled.h4`
   font-size: 48px;
   font-family: 'Playfair Display', Serif;
