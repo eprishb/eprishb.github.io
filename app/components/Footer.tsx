@@ -16,6 +16,7 @@ const Footer = () => {
 						All Rights Reserved.
 					</p>
 				</Copyright>
+				<p><a href="https://www.freepik.com/free-vector/app-development-illustration_10301602.htm#page=2&query=woman%20web%20developer&position=38&from_view=search&track=ais">Vector Image by pikisuperstar</a> on Freepik</p>
 			</Bar>
     </FooterCont>
   )
@@ -35,16 +36,13 @@ const Bar = styled.div`
 	position: fixed;
 	bottom: 0px;
 	left: 0;
-	color: #ccdbe5;
+	color: #202945;
+	background: #ccdbe5;
 	min-height: 56px;
 	padding: 0 16px;
 
 	@media (min-width: 0px) and (orientation: landscape) {
 		min-height: 48px;
-	}
-	
-	@media screen and (max-width: 768px) {
-		background: #202945;
 	}
 	
 	@media (min-width: 600px) {
