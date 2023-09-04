@@ -11,7 +11,7 @@ export async function getExperienceDescriptions(): Promise<Array<Description>> {
 	return [
 		{
 			id: 'palace',
-			src: require('~/assets/img/palace-logo.png'),
+			src: require('~/assets/img/palace-logo-black.png'),
 			company: 'Palace Sports & Entertainment',
 			date: 'Jun 2013 - Sep 2013',
 			desc: `
@@ -29,7 +29,7 @@ export async function getExperienceDescriptions(): Promise<Array<Description>> {
 		},
 		{
 			id: 'continental',
-			src: require('~/assets/img/continental-logo.png'),
+			src: require('~/assets/img/continental-logo-black.png'),
 			company: 'Continental Services',
 			date: 'Sep 2013 - Sep 2015',
 			desc: `
@@ -58,7 +58,7 @@ export async function getExperienceDescriptions(): Promise<Array<Description>> {
 		{
 			id: 'bradley',
 			date: 'May 2017 - May 2018',
-			src: require('~/assets/img/bradley-logo.png'),
+			src: require('~/assets/img/bradley-logo-black.png'),
 			company: 'Bradley Co.',
 			desc: `
 				<ul>
@@ -76,7 +76,7 @@ export async function getExperienceDescriptions(): Promise<Array<Description>> {
 		},
 		{
 			id: 'brooks',
-			src: require('~/assets/img/brooks-logo.png'),
+			src: require('~/assets/img/brooks-logo-black.png'),
 			company: 'Brooks Equipment',
 			date: 'Feb 2019 - Jul 2022',
 			desc: `
@@ -117,7 +117,7 @@ export async function getExperienceDescriptions(): Promise<Array<Description>> {
 		},
 		{
 			id: 'weco',
-			src: require('~/assets/img/weco-logo.png'),
+			src: require('~/assets/img/weco-logo-black.png'),
 			company: 'WECO Hospitality',
 			date: 'Jul 2022 - Jul 2023',
 			desc: `

@@ -1,75 +1,26 @@
-import { useEffect, useState, type FC } from 'react'
+import { type FC } from 'react'
 import { useLoaderData } from '@remix-run/react'
 import styled from 'styled-components'
-import { BsCaretLeft, BsCaretRight } from 'react-icons/bs'
-import {
-	MdFace,
-  MdFireplace,
-	MdLocalDining,
-	MdSportsBasketball
-} from 'react-icons/md'
-import { TbTruckDelivery } from 'react-icons/tb'
 import { useScrollIntoView } from '~/hooks/useScrollIntoView'
-import Button from '~/components/base/Button'
 import Container from '~/components/base/Container'
 
 type ExperienceProps = {
 	toggleModal: ((type?: string | undefined, e?: any) => void);
 }
 
-const stringToIcon : {[key: string]: any} = {
-	MdFace: <MdFace />,
-	MdFireplace: <MdFireplace />,
-	MdLocalDining: <MdLocalDining />,
-	MdSportsBasketball: <MdSportsBasketball />,
-	TbTruckDelivery: <TbTruckDelivery />,
-}
-
 const Experience: FC<ExperienceProps> = ({ toggleModal }) => {
 	const { jobs } = useLoaderData()
 	const expRef = useScrollIntoView('experience')
-
-	const [active, setActive] = useState<number>(0);
-	const [transition, setTransition] = useState<number>(0)
-	const length = jobs.length;
-
-	const next = () => active < length - 1 && setActive(active + 1);
-	const prev = () => active > 0 && setActive(active - 1);
-
-	// Experience Deatils CSS Calculations
-	useEffect(() => {
-		setTransition(active * - 240);
-	}, [active])
-
-	const expDetWidth = ((length - 1) * 100) + 'vw';
-	const expDetTransform = 'translateX(' + transition + 'px)';
-	// End Experience Deatils CSS Calculations
 
 	return (
     <Section id="experience" ref={expRef}>
       <StyledContainer>
         <Heading>Work Experience</Heading>
-				<ExperienceDetails $width={expDetWidth} $transform={expDetTransform}>
+				<ExperienceDetails>
 					{jobs.map((job: any, index: number) => (
-            <Details
-							key={index}
-							id={job.company}
-							onClick={(e) => toggleModal('experience', e.currentTarget)}
-						>
-							{stringToIcon[job.icon]}
-              <Typography>{job.company}</Typography>
-							<Typography className="overline">{job.jobTitle}</Typography>
-            </Details>
+						<Img key={index} src={job.src} alt={job.company} id={job.company} $width={job.width} onClick={(e) => toggleModal('experience', e.currentTarget)} />
           ))}
 				</ExperienceDetails>
-				<Arrows>
-					<Button icon className='left-arrow'>
-						<BsCaretLeft onClick={prev} />
-					</Button>
-					<Button icon className='right-arrow'>
-						<BsCaretRight onClick={next} />
-					</Button>
-				</Arrows>
       </StyledContainer>
     </Section>
   )
@@ -103,78 +54,13 @@ const Heading = styled.h4`
   text-align: center;
   margin-bottom: 50px;
 `
-const ExperienceDetails = styled.div <{ $width: string, $transform: string}>`
+const ExperienceDetails = styled.div`
   display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
+	flex-direction: column;
+	justify-content: center;
+`
+
+const Img = styled.img<{ $width: string }>`
 	width: ${props => props.$width};
-	margin-left: calc((100vw - 20px - 240px)/2);
-	transform: ${props => props.$transform};
-	transition: .5s all linear;
-	will-change: transform;
-	cursor: pointer;
-
-	@media (min-width: 768px) {
-		width: 80%;
-		flex-wrap: wrap;
-		justify-content: center;
-		align-self: center;
-		margin-left: 0px;
-		transform: unset;
-		transition: unset;
-		will-change: unset;
-	}
-`
-const Details = styled.div`
-	height: 200px;
-	width: 200px;
-  padding: 15px;
-  margin: 20px;
-  border: 1px solid #bf4953;
-  border-top: 10px solid #bf4953;
-  position: relative;
-  overflow: hidden;
-	flex: 0 0 200px;
-
-	&:hover {
-		background-color: #bf4953;
-	}
-`
-const Arrows = styled.div`
-	width: 100%;
-	height: fit-content;
-	position: absolute;
-	bottom: 140px;
-	cursor: pointer;
-
-	.left-arrow {
-		left: 0;
-		margin-right: 0;
-		position: inherit;
-		font-size: 32px;
-	}
-
-	.right-arrow {
-		right: 0;
-		margin-right: 0;
-		position: inherit;
-		font-size: 32px;
-	}
-
-	@media (min-width: 768px) {
-		display: none;
-	}
-`
-
-const Typography = styled.p`
-  font-weight: normal;
-
-  &.overline {
-    font-family: 'Playfair Display', serif;
-    font-weight: 500;
-    line-height: normal;
-    position: absolute;
-    top: 100px;
-    color: #ccdbe5;
-  }
+	margin-bottom: 15px;
 `
