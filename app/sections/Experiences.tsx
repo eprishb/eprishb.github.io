@@ -81,7 +81,6 @@ const Section = styled.section`
   display: grid;
   place-items: center;
   margin-top: 80px;
-  color: #ccdbe5;
 	scroll-margin-top: 80px;
 `
 const StyledContainer = styled(Container)`

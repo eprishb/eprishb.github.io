@@ -51,7 +51,6 @@ const Section = styled.section `
 	display: grid;
 	place-items: center;
 	min-height: 100vh;
-	// color: #ccdbe5;
 `
 const StyledContainer = styled(Container) `
 	display: flex;

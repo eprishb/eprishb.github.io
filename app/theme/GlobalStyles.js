@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyles = createGlobalStyle`
   body {
-    background: #ccdbe5;
+    background: white;
     color: #202945;
     font-family: Lato;
 		line-height: 1.75em;
