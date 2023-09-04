@@ -5,6 +5,7 @@ export const GlobalStyles = createGlobalStyle`
     background: #ccdbe5;
     color: #202945;
     font-family: Lato;
+		line-height: 1.75em;
     transition: all 0.50s linear;
 		margin: 0;
   }

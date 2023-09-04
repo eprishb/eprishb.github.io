@@ -33,6 +33,7 @@ const Bar = styled.div`
 	align-items: center;
 	width: 100vw;
 	font-size: 10px;
+	line-height: 1.25em;
 	position: fixed;
 	bottom: 0px;
 	left: 0;
