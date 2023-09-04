@@ -1,19 +1,20 @@
-import React from 'react';
 import type { FC } from 'react'
 import { useLoaderData } from '@remix-run/react'
 import styled from 'styled-components'
+import Chip from '../base/Chip'
 
 type ExpDetailsProps = {
 }
 
 type JobProps = {
 	id?: string;
+	src: string;
+	company: string;
 	date: string;
+	jobTitle: string;
+	imgWidth: string;
 	desc: string;
-}
-
-type DescProps = {
-	desc: string;
+	skills: Array<string>;
 }
 
 const ExperienceDetails: FC<ExpDetailsProps> = () => {
@@ -21,8 +22,22 @@ const ExperienceDetails: FC<ExpDetailsProps> = () => {
 	
   return (
     <>
-      {expDescs.map((job: JobProps) => (
-        <Description key={job.id} desc={job.desc} />
+			{expDescs.map((job: JobProps) => (
+				<JobInfo key={job.id}>
+					<Heading>
+						<Company>
+							<Img src={job.src} alt={job.company + 'logo'} $width={job.imgWidth} />
+							{job.jobTitle}
+						</Company>
+						<Date>{job.date}</Date>
+					</Heading>
+					<Description>{job.desc}</Description>
+					<Skills>
+						{job.skills.map((skill: string, index: number) => (
+							<Chip key={index}>{skill}</Chip>
+						))}
+					</Skills>
+				</JobInfo>
       ))}
     </>
   )
@@ -30,34 +45,25 @@ const ExperienceDetails: FC<ExpDetailsProps> = () => {
 
 export default ExperienceDetails
 
-function Description({ desc }: DescProps) {
-	return (
-		<StyledDescription dangerouslySetInnerHTML={{__html: desc }} />
-	)
-}
-
-const StyledDescription = styled.div`
-	ul {
-		margin-right: 15px;
-	}
-
-  li {
-    margin-bottom: 10px;
-  }
-
-	&::-webkit-scrollbar-track {
-		border-radius: 10px;
-		background-color: rgb(44, 53, 81);
-	}
-
-	&::-webkit-scrollbar {
-		display: block;
-		width: 5px;
-		background-color: unset;
-	}
-
-	&::-webkit-scrollbar-thumb {
-		border-radius: 10px;
-		background-color: rgb(60, 71, 99);
-	}
+const JobInfo = styled.div`
+	margin-bottom: 45px;
 `
+
+const Heading = styled.div`
+	display: flex;
+	align-items: end;
+	justify-content: space-between;
+`
+
+const Company = styled.div``
+
+const Img = styled.img<{ $width: string }>`
+	display: block;
+	width: ${ props => props.$width };
+`
+
+const Date = styled.div``
+
+const Description = styled.div``
+
+const Skills = styled.div``

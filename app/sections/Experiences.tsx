@@ -1,5 +1,4 @@
-import { type FC, useState } from 'react'
-import { useLoaderData } from '@remix-run/react'
+import { type FC } from 'react'
 import styled from 'styled-components'
 import { useScrollIntoView } from '~/hooks/useScrollIntoView'
 import Container from '~/components/base/Container'
@@ -9,20 +8,13 @@ type ExperienceProps = {
 }
 
 const Experience: FC<ExperienceProps> = () => {
-	const { jobs } = useLoaderData()
 	const expRef = useScrollIntoView('experience')
-	const [contentId, setContentId] = useState<number>(0)
 
 	return (
     <Section id="experience" ref={expRef}>
 			<StyledContainer>
 				<Main>
 					<Heading>Work Experience</Heading>
-					<Company>
-						{jobs.map((job: any, index: number) => (
-							<Img key={index} className={contentId === index ? 'active' : ''} src={job.src} alt={job.company} id={job.company} $width={job.width} />
-						))}
-					</Company>
 				</Main>
 				<Details>
 					<ExperienceDetails />
@@ -62,6 +54,7 @@ const Main = styled.div`
 const Details = styled.div`
 	width: 60%;
 	max-height: calc(90vh - 64px - 64px);
+	overflow: scroll;
 `
 
 const Heading = styled.h4`
@@ -69,20 +62,4 @@ const Heading = styled.h4`
   font-family: 'Playfair Display', Serif;
   font-weight: normal;
   margin-bottom: 50px;
-`
-
-const Company = styled.div`
-  display: flex;
-	flex-direction: column;
-	justify-content: center;
-`
-
-const Img = styled.img<{ $width: string }>`
-	width: ${props => props.$width};
-	margin-bottom: 45px;
-	opacity: .25;
-
-	&.active {
-		opacity: 1;
-	}
 `
