@@ -89,7 +89,7 @@ export default function TestingIndex() {
 						/>
 						<Hero />
 						<About />
-						<Experience toggleModal={toggleModal} />
+						<Experience />
 						<Portfolio toggleModal={toggleModal} />
 						<Footer />
 					</Wrapper>
