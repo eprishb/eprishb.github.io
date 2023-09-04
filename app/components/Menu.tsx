@@ -177,6 +177,7 @@ const SocialButton = styled.a`
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	-webkit-tap-highlight-color: transparent;
+	line-height: 0;
 
 	svg {
 		vertical-align: bottom;
