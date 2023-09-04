@@ -101,5 +101,4 @@ export default function TestingIndex() {
 
 const Wrapper = styled.div`
   transition: 0.3 ease-in-out;
-  margin-bottom: 64px;
 `

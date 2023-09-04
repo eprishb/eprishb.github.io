@@ -49,14 +49,9 @@ const Bar = styled.div<{ $scrollNav?: boolean; }>`
 	width: 100vw;
 	font-size: 10px;
 	line-height: 1.25em;
-	position: fixed;
-	bottom: 0px;
-	left: 0;
 	color: #202945;
-	background: ${props => props.$scrollNav ? 'white' : '#ccdbe5'};
 	min-height: 56px;
 	padding: 0 16px;
-	transition: all 0.2s ease 0s;
 
 	@media (min-width: 0px) and (orientation: landscape) {
 		min-height: 48px;
