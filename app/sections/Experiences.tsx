@@ -20,7 +20,7 @@ const Experience: FC<ExperienceProps> = () => {
 					<Heading>Work Experience</Heading>
 					<Company>
 						{jobs.map((job: any, index: number) => (
-							<Img key={index} src={job.src} alt={job.company} id={job.company} $width={job.width} />
+							<Img key={index} className={contentId === index ? 'active' : ''} src={job.src} alt={job.company} id={job.company} $width={job.width} />
 						))}
 					</Company>
 				</Main>
@@ -56,6 +56,7 @@ const StyledContainer = styled(Container)`
 
 const Main = styled.div`
 	flex-direction: column;
+	flex: 1 0 auto;
 `
 
 const Details = styled.div`
@@ -67,7 +68,6 @@ const Heading = styled.h4`
   font-size: 48px;
   font-family: 'Playfair Display', Serif;
   font-weight: normal;
-  text-align: center;
   margin-bottom: 50px;
 `
 
@@ -80,4 +80,9 @@ const Company = styled.div`
 const Img = styled.img<{ $width: string }>`
 	width: ${props => props.$width};
 	margin-bottom: 45px;
+	opacity: .25;
+
+	&.active {
+		opacity: 1;
+	}
 `

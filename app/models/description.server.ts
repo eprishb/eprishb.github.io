@@ -5,6 +5,7 @@ type Description = {
 	date: string;
 	service?: string;
 	desc: any;
+	skills?: Array<string>;
 }
 
 export async function getExperienceDescriptions(): Promise<Array<Description>> {
@@ -13,31 +14,36 @@ export async function getExperienceDescriptions(): Promise<Array<Description>> {
 			id: 'weco',
 			company: 'WECO Hospitality',
 			date: 'Jul 2022 - Jul 2023',
-			desc: 'Test Desc'
+			desc: 'Collaborated with small cross-functional team to move a food service web application from WordPress to React in order to scale the app, control the flow, and update the UI/UX, thereby enhancing the user experience. This included working with data from open and internal APIs as well as internal SQL and noSQL databases. Developed, maintained and shipped production ready code.',
+			skills: ['React', 'Typescript', 'Styled Components', 'Django', 'Node.js', 'Jest', 'React Testing Library', 'MSW', 'Firebase', 'Google Maps API', 'Google Autocomplete API', 'Google Marketing Platform', 'Sentry'],
 		},
 		{
 			id: 'brooks',
 			company: 'Brooks Equipment',
 			date: 'Feb 2019 - Jul 2022',
-			desc: 'Test Desc'
+			desc: 'Teamed up with the creative director and back-end engineers to revamp all existing subsidiary websites and develop two additional websites for newly aquired companies within a year. Ongoing routine maintainance and updates to UI/UX and SEO were performed.',
+			skills: ['Javascript', 'HTML', 'CSS', 'ASP.NET', 'Google Marketing Platform', 'Adobe CC', 'Hubspot', 'Workfront'],
 		},
 		{
 			id: 'bradley',
 			date: 'May 2017 - May 2018',
 			company: 'Bradley Co.',
-			desc: 'Test Desc',
+			desc: 'Transformed .png and .jpeg logo images into vector to late be used on various merchandise. Updated eCommerce sites, web banners, and ad banners. Designed PPG Paint yearly calendars as needed.',
+			skills: ['Adobe CC', 'eCommerce Design'],
 		},
 		{
 			id: 'continental',
 			company: 'Continental Services',
 			date: 'Sep 2013 - Sep 2015',
-			desc: 'Test Desc',
+			desc: 'Crafted digital menu boards for various cafe locations. Designed motion graphics for campaigns, collateral pieces, propoals, creative briefs, and POS posters.',
+			skills: ['Adobe CC'],
 		},
 		{
 			id: 'palace',
 			company: 'Palace Sports & Entertainment',
 			date: 'Jun 2013 - Sep 2013',
-			desc: 'Test Desc'
+			desc: 'Recieved mentorship. Updated templated business cards for employees and tickets for events.',
+			skills: ['Adobe CC'],
 		},
 	];
 }
