@@ -54,7 +54,7 @@ const Header = () => {
 export default Header
 
 const Nav = styled.nav<{ $scrollNav?: boolean; }>`
-	background: #ccdbe5;
+	background: ${props => props.$scrollNav ? 'white' : '#ccdbe5'};
 	height: 64px;
 	width: 100%;
 	display: flex;
@@ -63,10 +63,7 @@ const Nav = styled.nav<{ $scrollNav?: boolean; }>`
 	position: fixed;
 	top: 0;
 	z-index: 10;
-
-	@media (max-width: 980px) {
-		transition: all 0.8s ease 0s;
-	}
+	transition: all 0.8s ease 0s;
 `
 
 const Bar = styled.div`

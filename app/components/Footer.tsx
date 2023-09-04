@@ -1,11 +1,26 @@
+import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 const Footer = () => {
+	const [scrollNav, setScrollNav] = useState(false)
+
 	const copyrightYear = new Date().getFullYear();
+
+	const onScroll = () => {
+    if (window.scrollY >= 1) {
+      setScrollNav(true)
+    } else {
+      setScrollNav(false)
+    }
+	}
+
+	useEffect(() => {
+    window.addEventListener('scroll', onScroll)
+  }, [])
 
 	return (
 		<FooterCont>
-			<Bar>
+			<Bar $scrollNav={scrollNav}>
 				<Copyright>
 					<p>
 						&copy; 
@@ -27,7 +42,7 @@ export default Footer
 
 const FooterCont = styled.footer``
 
-const Bar = styled.div`
+const Bar = styled.div<{ $scrollNav?: boolean; }>`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -38,9 +53,10 @@ const Bar = styled.div`
 	bottom: 0px;
 	left: 0;
 	color: #202945;
-	background: #ccdbe5;
+	background: ${props => props.$scrollNav ? 'white' : '#ccdbe5'};
 	min-height: 56px;
 	padding: 0 16px;
+	transition: all 0.2s ease 0s;
 
 	@media (min-width: 0px) and (orientation: landscape) {
 		min-height: 48px;
