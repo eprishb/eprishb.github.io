@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import styled from 'styled-components'
-import logo from '~/assets/7TD-logo.png'
+import logo from '~/assets/7TD-logo-tan.png'
 
 export default function Loader() {
   return (
