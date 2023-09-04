@@ -2,7 +2,6 @@ import { useContext } from 'react'
 import styled from 'styled-components'
 import Button from '~/components/base/Button'
 import Container from '~/components/base/Container'
-import HeroImage from '~/assets/hero.png'
 import WebDevImage from '~/assets/webdevvector.png'
 import { NavContext } from '~/context/NavContext'
 import { useScrollIntoView } from '~/hooks/useScrollIntoView'
@@ -51,8 +50,7 @@ export default Hero
 
 const Jumbotron = styled.section`
   height: 100vh;
-	// background-image: url(${HeroImage});
-  // background-size: cover;
+	background-color: #ccdbe5;
 `
 
 const StyledContainer = styled(Container)`
