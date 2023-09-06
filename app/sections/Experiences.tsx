@@ -14,7 +14,13 @@ const Experience: FC<ExperienceProps> = () => {
     <Section id="experience" ref={expRef}>
 			<StyledContainer>
 				<Main>
-					<Heading>Work Experience</Heading>
+					<h3>Work Experience</h3>
+					<h5>
+						Crafting Code, Shaping Solutions:
+						<br />
+						Explore My Journey
+					</h5>
+					<hr/>
 				</Main>
 				<Details>
 					<ExperienceDetails />
@@ -47,19 +53,29 @@ const StyledContainer = styled(Container)`
 `
 
 const Main = styled.div`
-	flex-direction: column;
-	flex: 1 0 auto;
+	align-self: center;
+
+	h3 {
+		font-weight: 500;
+		margin-bottom: 20px;
+	}
+
+	h5 {
+		font-family: 'Playfair Display', serif;
+		font-size: calc(16px + (24 - 16) * (100vw - 320px) / (1200 - 320));
+		font-weight: 500;
+	}
+
+	hr {
+		width: 25%;
+		max-width: 200px;
+		margin-top: 10px;
+		border: solid 2px #bf4953;
+	}
 `
 
 const Details = styled.div`
 	width: 60%;
 	max-height: calc(90vh - 64px - 64px);
 	overflow: scroll;
-`
-
-const Heading = styled.h4`
-  font-size: 48px;
-  font-family: 'Playfair Display', Serif;
-  font-weight: normal;
-  margin-bottom: 50px;
 `
