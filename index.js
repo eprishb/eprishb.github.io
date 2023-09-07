@@ -3,6 +3,7 @@
 // redirection page
 document.addEventListener('DOMContentLoaded', () => {
   const trustedLinks = [
+    'https://eprisr.github.io/',
     'https://seven-times-design-9d9dc369a453.herokuapp.com/',
   ]
   const urlSelector = window.location.href.match(/url(.*)/)
