@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (trustedLinks.includes(url)) {
     document.querySelector('#preconnect').href = url
     if (!window.InstallTrigger) {
-      document.querySelector('#refresh').content = `100; URL='${url}'`
+      document.querySelector('#refresh').content = `0; URL='${url}'`
     } else {
       window.setTimeout(() => {
         window.location.href = url
