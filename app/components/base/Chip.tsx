@@ -2,31 +2,32 @@ import type {FC} from 'react'
 import styled from 'styled-components'
 
 type ChipProps = {
+	outline?: boolean;
+	color: string;
+	bold?: boolean;
+	className?: string;
 	children: string | string[] | JSX.Element | JSX.Element[] | (string | JSX.Element)[];
 }
 
-const Chip: FC<ChipProps> = ({ children }) => {
-	const techSkills = ['Javascript', 'Typescript', 'React', 'Remix', 'ExpressJs', 'Lodash', 'React Testing Library', 'Mock Service Worker (MSW)',  'MongoDB', 'Firebase', 'Git', 'Github', 'AWS', 'Responsive Design', 'Accessibility', 'HubSpot', 'Google Analytics', 'Google Search Console', 'Google Tag Manager', 'Sentry', 'Trello', 'Shortcut']
-	const designSkills = ['InDesign', 'Illustrator', 'Photoshop', 'XD', 'AfterEffects', 'Figma', 'Branding and Identity', 'Print Design', 'Web Design']
-	
+const BaseChip: FC<ChipProps> = ({ className, children }) => {
 	return (
-		<StyledChip className='outline'>{ children }</StyledChip>
+		<div className={className}>{children}</div>
 	)
 }
 
-export default Chip
+export default BaseChip
 
-const StyledChip = styled.div`
+export const Chip = styled(BaseChip) `
 	display: inline-flex;
-	padding: 5px 10px;
-	margin: 5px;
-	border-radius: 50px;
+	padding: .25rem .75rem;
+	margin: 5px 5px 0px 0px;
+	border-radius: 25px;
 	width: fit-content;
 	font-size: .75em;
+	font-weight: ${(props) => props.bold ? 600 : 400};
+	color: ${(props) => props.outline ? `${props.color}` : 'white'};
+	background-color: ${(props) => props.outline ? 'unset' : `${props.color}`};
 
-	&.outline {
-		border: 1.5px solid #bf4953;
-		color: #bf4953;
-		outline: none;
-	}
+	border: ${(props) => props.outline ? `1.5px solid ${props.color}`: 'unset'};
+	outline: none;
 `

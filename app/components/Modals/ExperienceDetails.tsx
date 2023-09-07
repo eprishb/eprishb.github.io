@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 import { useLoaderData } from '@remix-run/react'
 import styled from 'styled-components'
-import Chip from '../base/Chip'
+import { Chip } from '~/components/base/Chip'
 
 type ExpDetailsProps = {
 }
@@ -34,7 +34,7 @@ const ExperienceDetails: FC<ExpDetailsProps> = () => {
 					<Description>{job.desc}</Description>
 					<Skills>
 						{job.skills.map((skill: string, index: number) => (
-							<Chip key={index}>{skill}</Chip>
+							<Chip key={index} outline bold color='#202945'>{skill}</Chip>
 						))}
 					</Skills>
 				</JobInfo>
