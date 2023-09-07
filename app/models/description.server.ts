@@ -29,7 +29,7 @@ export async function getExperienceDescriptions(): Promise<Array<Description>> {
 			date: 'Feb 2019 - Jul 2022',
 			jobTitle: 'Web Developer & Graphic Designer',
 			imgWidth: '125px',
-			desc: 'Teamed up with the creative director and back-end engineers to revamp all existing subsidiary websites and develop two additional websites for newly aquired companies within a year. Ongoing routine maintainance and updates to UI/UX and SEO were performed.',
+			desc: 'Teamed up with the creative director and back-end engineers to revamp all existing subsidiary websites and develop two additional websites for newly acquired companies within a year. Ongoing routine maintainance and updates to UI/UX and SEO were performed.',
 			skills: ['Javascript', 'HTML', 'CSS', 'ASP.NET', 'Google Marketing Platform', 'Adobe CC', 'Hubspot', 'Workfront'],
 		},
 		{
@@ -49,7 +49,7 @@ export async function getExperienceDescriptions(): Promise<Array<Description>> {
 			date: 'Sep 2013 - Sep 2015',
 			jobTitle: 'Graphic & Motion Designer',
 			imgWidth: '180px',
-			desc: 'Crafted digital menu boards for various cafe locations. Designed motion graphics for campaigns, collateral pieces, propoals, creative briefs, and POS posters.',
+			desc: 'Crafted digital menu boards for various cafe locations. Designed motion graphics for campaigns, collateral pieces, proposals, creative briefs, and POS posters.',
 			skills: ['Adobe CC'],
 		},
 		{
@@ -59,11 +59,14 @@ export async function getExperienceDescriptions(): Promise<Array<Description>> {
 			date: 'Jun 2013 - Sep 2013',
 			jobTitle: 'Graphic Design Intern',
 			imgWidth: '100px',
-			desc: 'Recieved mentorship. Updated templated business cards for employees and tickets for events.',
+			desc: 'Received mentorship. Updated templated business cards for employees and tickets for events.',
 			skills: ['Adobe CC'],
 		},
 	];
 }
+
+// const techSkills = ['Javascript', 'Typescript', 'React', 'Remix', 'ExpressJs', 'Lodash', 'React Testing Library', 'Mock Service Worker (MSW)',  'MongoDB', 'Firebase', 'Git', 'Github', 'AWS', 'Responsive Design', 'Accessibility', 'HubSpot', 'Google Analytics', 'Google Search Console', 'Google Tag Manager', 'Sentry', 'Trello', 'Shortcut']
+// 	const designSkills = ['InDesign', 'Illustrator', 'Photoshop', 'XD', 'AfterEffects', 'Figma', 'Branding and Identity', 'Print Design', 'Web Design']
 
 export async function getProjectDescriptions(): Promise<Array<Description>> {
 	return [
