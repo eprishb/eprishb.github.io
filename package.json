@@ -1,0 +1,26 @@
+{
+  "homepage": "https://eprisr.github.io/",
+  "name": "redirect",
+  "version": "1.0.0",
+  "description": "Github Pages Redirect",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eprisr/seven-times-design.git"
+  },
+  "author": "Epris Richardson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eprisr/seven-times-design/issues"
+  },
+  "scripts": {
+    "deploy": "gh-pages -d build",
+		"start": "http-server"
+  },
+  "dependencies": {
+    "gh-pages": "^6.0.0"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
