@@ -14,7 +14,15 @@ const Portfolio: FC<PortfolioProps> = ({ toggleModal }) => {
   return (
     <Section id="portfolio" ref={portRef}>
       <StyledContainer>
-        <Typography>Portfolio</Typography>
+				<Main>
+					<h3>Portfolio</h3>
+					<h5>
+						Unlocking Digital Potential:
+						<br />
+						Explore My Work
+					</h5>
+					<hr />
+				</Main>
         <Projects toggleModal={toggleModal} />
       </StyledContainer>
     </Section>
@@ -33,7 +41,8 @@ const Section = styled.section`
 
 const StyledContainer = styled(Container)`
   display: flex;
-	flex-direction: column;
+	justify-content: space-between;
+	width: 100%;
 	max-width: calc(100vw - 20px);
 	position: relative;
 	overflow: hidden;
@@ -44,10 +53,24 @@ const StyledContainer = styled(Container)`
   }
 `
 
-const Typography = styled.h4`
-  font-size: 48px;
-  font-family: 'Playfair Display', Serif;
-  font-weight: normal;
-  text-align: center;
-  margin-bottom: 50px;
+const Main = styled.div`
+	align-self: center;
+
+	h3 {
+		font-weight: 500;
+		margin-bottom: 20px;
+	}
+
+	h5 {
+		font-family: 'Playfair Display', serif;
+		font-size: calc(16px + (24 - 16) * (100vw - 320px) / (1200 - 320));
+		font-weight: 500;
+	}
+
+	hr {
+		width: 25%;
+		max-width: 200px;
+		margin-top: 10px;
+		border: solid 2px #bf4953;
+	}
 `
