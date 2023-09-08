@@ -16,7 +16,9 @@ const Experience: FC<ExperienceProps> = () => {
 				<Main>
 					<h3>Work Experience</h3>
 					<h5>
-						Crafting Code, Shaping Solutions:
+						Crafting Code,
+						<br />
+						Shaping Solutions:
 						<br />
 						Explore My Journey
 					</h5>
