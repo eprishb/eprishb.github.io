@@ -23,7 +23,9 @@ const Portfolio: FC<PortfolioProps> = ({ toggleModal }) => {
 					</h5>
 					<hr />
 				</Main>
-        <Projects toggleModal={toggleModal} />
+				<Details>
+					<Projects toggleModal={toggleModal} />
+				</Details>
       </StyledContainer>
     </Section>
   )
@@ -73,4 +75,10 @@ const Main = styled.div`
 		margin-top: 10px;
 		border: solid 2px #bf4953;
 	}
+`
+
+const Details = styled.div`
+	width: 60%;
+	max-height: calc(90vh - 64px - 64px);
+	overflow: scroll;
 `
