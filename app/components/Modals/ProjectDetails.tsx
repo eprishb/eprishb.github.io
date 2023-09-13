@@ -1,54 +1,47 @@
 import type { FC } from 'react'
 import { useEffect, useState } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
-import { useLoaderData } from '@remix-run/react'
 import styled from 'styled-components'
 import ReactPlayer from 'react-player'
 import { MdOutlineOpenInNew } from 'react-icons/md'
 
 type ProjDetailsProps = {
-	content: {
+	proj: {
 		id: string;
-	}
+		src: any;
+		date: string;
+		desc: any;
+		skills?: Array<string>;
+		type: string;
+		title: string;
+		client: string;
+		clickable: boolean;
+	};
 }
 
-type ProjectProps = {
-	id?: string;
-	src: string;
-	date: string;
-	desc: string;
-	service: string;
-	match: boolean;
-}
+type MediaProps = { src: string | object; type: string; }
+type TitleProps = { title: string; }
 
-type MediaProps = { src: string | object; }
-type DateProps = { date: string; }
-
-const ProjectDetails: FC<ProjDetailsProps> = ({ content }) => {
-	const { projDescs } = useLoaderData()
-
+const ProjectDetails: FC<ProjDetailsProps> = ({ proj }) => {
   return (
-    <>
-      {projDescs.map((proj: ProjectProps) => (
-        <Project
-          key={proj.id}
-          src={proj.src}
-					date={proj.date}
-          desc={proj.desc}
-          service={proj.service}
-          match={proj.id === content.id}
-        />
-      ))}
-    </>
+		<>
+			<Detail>
+				<Title title={proj.title} />
+				<p>{proj.client}</p>
+				<p>{proj.date}</p>
+				<p>{proj.desc}</p>
+			</Detail>
+			<Media type={proj.type} src={proj.src} />
+		</>
   )
 }
 
 export default ProjectDetails
 
-function Media({ src }: MediaProps) {
-	if (typeof src === 'object') return (<ReactPlayer {...src} />)
-	
-	return (
+function Media({ type, src }: MediaProps) {
+	if (type === 'video' && typeof src === 'object') return (<ReactPlayer {...src} />)
+	if (type === 'code' || type === 'design') return (<img src={src} alt='' />)
+	if (type === 'multiDesign') return (
 		<StyledMedia dangerouslySetInnerHTML={{__html: src }} />
 	)
 }
@@ -57,13 +50,13 @@ const Icon = () => (
 	<MdOutlineOpenInNew /> 
 )
 
-function Date({ date }: DateProps) {
+function Title({ title }: TitleProps) {
 	const variable: any = { '%variable%': Icon }
 	const [content, setContent] = useState("")
 
 	useEffect(() => {
-		setContent(`${date}`)
-	}, [date])
+		setContent(`${title}`)
+	}, [title])
 
 	const renderContent = () => {
 		let res = content;
@@ -78,33 +71,10 @@ function Date({ date }: DateProps) {
 	}
 
 	return (
-		<StyledDate dangerouslySetInnerHTML={{__html: renderContent() }} />
+		<StyledTitle dangerouslySetInnerHTML={{__html: renderContent() }} />
 	)
 }
 
-function Project({ src, date, desc, service, match }: ProjectProps) {
-  return (
-    <>
-      {match && (
-        <DetailWrapper>
-					<Media src={src} />
-          <Detail>
-            <Service>{service}</Service>
-						<Date date={date} />
-            <Description>{desc}</Description>
-          </Detail>
-        </DetailWrapper>
-      )}
-    </>
-  )
-}
-
-const DetailWrapper = styled.div`
-  display: grid;
-  grid-gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, auto));
-  align-items: center;
-`
 const StyledMedia = styled.div`
   display: grid;
   place-items: center;
@@ -169,25 +139,21 @@ const StyledMedia = styled.div`
   }
 `
 const Detail = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
+	width: 50%;
+	margin-right: 15px;
 `
-const Service = styled.h4``
-const StyledDate = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 10px 0 30px 0;
+
+const StyledTitle = styled.div`
+	font-size: 1.5em;
+	font-weight: 600;
+	text-transform: uppercase;
 
   a {
     color: #ccdbe5;
-    vertical-align: middle;
+    vertical-align: text-top;
   }
 
   a svg {
-    font-size: 15px;
+    font-size: 1.125em;
   }
 `
-const Description = styled.p``
