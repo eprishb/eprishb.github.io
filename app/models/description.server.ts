@@ -3,7 +3,7 @@ interface Description {
 	src: any;
 	date: string;
 	desc: any;
-	skills?: Array<string>;
+	skills: Array<string>;
 }
 
 interface ExpDescription extends Description {
@@ -79,72 +79,80 @@ export async function getExperienceDescriptions(): Promise<Array<ExpDescription>
 
 export async function getProjectDescriptions(): Promise<Array<ProjDescription>> {
 	return [
-		{
-			id: 'maps',
-			type: 'code',
+    {
+      id: 'maps',
+      type: 'code',
       src: require('~/assets/img/neighborhood-maps.png'),
-      title: 'Neighborhood Map <a href="https://neighborhood-map-eprishb.herokuapp.com/" target="_blank" rel="noopener noreferrer">%variable%</a>',
-			clickable: true,
-			date: 'Nov 2018',
-			client: 'Personal Project',
-			desc: 'Maps is a smoothie locator with a predetermined list of smoothie shop locations in certain cities. This intermediate project teaches the ins and outs of React and how to use APIs. The planning of the project required a layout of the components and knowing which components rely on one another. The next problem was connecting the API to the map and getting the location pointers to match the geographical location.',
-		},
-		{
-			id: 'reads',
-			type: 'code',
+      title:
+        'Neighborhood Map <a href="https://neighborhood-map-eprishb.herokuapp.com/" target="_blank" rel="noopener noreferrer">%variable%</a>',
+      clickable: true,
+      date: 'Nov 2018',
+      client: 'Personal Project',
+      desc: 'Maps is a smoothie locator with a predetermined list of smoothie shop locations in certain cities. This intermediate project teaches the ins and outs of React and how to use APIs. The planning of the project required a layout of the components and knowing which components rely on one another. The next problem was connecting the API to the map and getting the location pointers to match the geographical location.',
+      skills: ['React', 'Google Maps API', 'Foursquare', 'MaterialUI'],
+    },
+    {
+      id: 'reads',
+      type: 'code',
       src: require('~/assets/img/my-reads.png'),
-      title: 'My Reads <a href="https://my-reads-eprishb.herokuapp.com/" target="_blank" rel="noopener noreferrer">%variable%</a>',
-			clickable: true,
-			date: 'Sep 2018',
-			client: 'Personal Project',
-			desc: 'My Reads allows a user to browse a digital library and add different books to their lists. The primary challenge was dynamically rendering content and working with query inputs.',
-		},
-		{
-			id: 'mem',
-			type: 'code',
+      title:
+        'My Reads <a href="https://my-reads-brown.vercel.app/" target="_blank" rel="noopener noreferrer">%variable%</a>',
+      clickable: true,
+      date: 'Sep 2018',
+      client: 'Personal Project',
+      desc: 'My Reads allows a user to browse a digital library and add different books to their lists. The primary challenge was dynamically rendering content and working with query inputs.',
+      skills: ['React'],
+    },
+    {
+      id: 'mem',
+      type: 'code',
       src: require('~/assets/img/memory-game.png'),
-      title: 'Memory Game <a href="https://eprisr.github.io/Project-Memory_Game/" target="_blank" rel="noopener noreferrer">%variable%</a>',
-			clickable: true,
-			date: 'Aug 2018',
-			client: 'Personal Project',
-			desc: 'We all scream for better memory. No one likes to experience brain fog. Have fun with this mentally stimulating and sweet memory game.',
-		},
-		{
-			id: 'gm305',
-			type: 'video',
+      title:
+        'Memory Game <a href="https://memory-game-steel-two.vercel.app/" target="_blank" rel="noopener noreferrer">%variable%</a>',
+      clickable: true,
+      date: 'Aug 2018',
+      client: 'Personal Project',
+      desc: 'We all scream for better memory. No one likes to experience brain fog. Have fun with this mentally stimulating and sweet memory game.',
+      skills: ['HTML5', 'CSS3', 'Javascript'],
+    },
+    {
+      id: 'gm305',
+      type: 'video',
       // src: require('~/assets/img/GM-Power-305x320.png'),
       title: 'GM Powertrain',
-			clickable: true,
-			date: 'Sep 2013',
-			client: 'General Motors Powertrain | Continental Services',
-			desc: 'Nothing beats having a cafe inside the workplace. Digital menus are a great way to display regular prices and great deals at the same time. This digital menu was created as a way to increase sales by offering the best deals up front.',
-			src: {
-				url: "https://youtu.be/o4aBO8hHzq8",
-				id: "video",
-				width: "fit-content",
-				height: "100%",
-			}
-		},
-		{
-			id: 'bala305',
-			type: 'design',
+      clickable: true,
+      date: 'Sep 2013',
+      client: 'General Motors Powertrain | Continental Services',
+      desc: 'Nothing beats having a cafe inside the workplace. Digital menus are a great way to display regular prices and great deals at the same time. This digital menu was created as a way to increase sales by offering the best deals up front.',
+      src: {
+        url: 'https://youtu.be/o4aBO8hHzq8',
+        id: 'video',
+        width: 'fit-content',
+        height: '100%',
+      },
+      skills: ['After Effects', 'Digital Menu Board'],
+    },
+    {
+      id: 'bala305',
+      type: 'design',
       src: require('~/assets/img/Balaboosta-305x320.png'),
       title: 'Balaboosta',
-			clickable: true,
-			date: 'Nov 2013',
-			client: 'Continental Services',
-			desc: '',
-		},
-		{
-			id: 'ed305',
-			type: 'multiDesign',
+      clickable: true,
+      date: 'Nov 2013',
+      client: 'Continental Services',
+      desc: '',
+      skills: ['Adobe CC', 'Branding', 'POS Marketing'],
+    },
+    {
+      id: 'ed305',
+      type: 'multiDesign',
       // src: require('~/assets/img/Ed-Dining-305x320.png'),
       title: 'Educational Dining',
-			clickable: true,
-			date: 'Sep 2013',
-			client: 'Educational Dining | Continental Services',
-			desc: 'Branded collateral pieces',
-			src: `
+      clickable: true,
+      date: 'Sep 2013',
+      client: 'Educational Dining | Continental Services',
+      desc: 'Branded collateral pieces',
+      src: `
 				<div class="multiple">
 					<div class="slides">
 						<img
@@ -171,59 +179,63 @@ export async function getProjectDescriptions(): Promise<Array<ProjDescription>> 
 					<a href="#ed305-3">3</a>
 				</div>
 			`,
-		},
-		{
-			id: 'cont305',
-			type: 'video',
+      skills: ['Adobe CC', 'Marketing'],
+    },
+    {
+      id: 'cont305',
+      type: 'video',
       // src: require('~/assets/img/Cont-Client-305x320.png'),
       title: 'Client Movie',
-			clickable: true,
-			date: 'Feb 2014',
-			client: 'Continental Serivces',
-			desc: '',
-			src: {
-				url: "https://youtu.be/aVkRW2K-fRo",
-				id: "video",
-				width: "fit-content",
-				height: "100%",
-			},
-		},
-		{
-			id: 'luc305',
-			type: 'video',
+      clickable: true,
+      date: 'Feb 2014',
+      client: 'Continental Serivces',
+      desc: '',
+      src: {
+        url: 'https://youtu.be/aVkRW2K-fRo',
+        id: 'video',
+        width: 'fit-content',
+        height: '100%',
+      },
+      skills: ['After Effects'],
+    },
+    {
+      id: 'luc305',
+      type: 'video',
       // src: require('~/assets/img/Lucca-305x320.png'),
       title: 'Lucca | Italian Street Food',
-			clickable: true,
-			date: 'Jan 2014',
-			client: 'Continental Services',
-			desc: '',
-			src: {
-				url: "https://youtu.be/vxCD96BGkdw",
-				id: "video",
-				width: "fit-content",
-				height: "100%",
-			},
-		},
-		{
-			id: 'rof305',
-			type: 'design',
+      clickable: true,
+      date: 'Jan 2014',
+      client: 'Continental Services',
+      desc: '',
+      src: {
+        url: 'https://youtu.be/vxCD96BGkdw',
+        id: 'video',
+        width: 'fit-content',
+        height: '100%',
+      },
+      skills: ['After Effects', 'Digital Menu Board'],
+    },
+    {
+      id: 'rof305',
+      type: 'design',
       src: require('~/assets/img/Rise-of-Fall-305x320.png'),
       title: 'The Rise of Fall Pasta',
-			clickable: true,
-			date: 'Oct 2013',
-			client: 'Continental Services',
-			desc: '',
-		},
-		{
-			id: 'ap305',
-			type: 'multiDesign',
+      clickable: true,
+      date: 'Oct 2013',
+      client: 'Continental Services',
+      desc: '',
+      skills: ['Adobe CC', 'Marketing'],
+    },
+    {
+      id: 'ap305',
+      type: 'multiDesign',
       // src: require('~/assets/img/Andre-Port-305x320.png'),
       title: 'Portfolio Magazine',
-			clickable: true,
-			date: 'May 2013',
-			client: 'Andre Morton | I AM Creative LLC',
-			desc: 'Ad a part of portfolio show, students have to showcase their work. With aspirations of being a creative director, I had the opportunity to be under his direction. I was given an idea of what the content and topics would be and we went out and took photos based off of those concepts. After that, we began strategizing the order and layout of the piece.',
-			src: `
+      clickable: true,
+      date: 'May 2013',
+      client: 'Andre Morton | I AM Creative LLC',
+      desc: 'Ad a part of portfolio show, students have to showcase their work. With aspirations of being a creative director, I had the opportunity to be under his direction. I was given an idea of what the content and topics would be and we went out and took photos based off of those concepts. After that, we began strategizing the order and layout of the piece.',
+      src: `
 				<div class="multiple">
 					<div class="slides" id="w260">
 						<img
@@ -276,16 +288,18 @@ export async function getProjectDescriptions(): Promise<Array<ProjDescription>> 
 					<a href="#ap305-6">6</a>
 				</div>
 			`,
-		},
-		{
-			id: "sweet",
-			type: 'design',
-			src: require('~/assets/img/SoSweet_Thumb.jpg'),
+      skills: ['Adobe CC', 'Photography', 'Print Design'],
+    },
+    {
+      id: 'sweet',
+      type: 'design',
+      src: require('~/assets/img/SoSweet_Thumb.jpg'),
       title: 'So Sweet: Case Study',
-			clickable: false,
-			date: "Feb 2020",
-			client: 'Personal Project',
-			desc: "Coming Soon"
-		},
-	]
+      clickable: false,
+      date: 'Feb 2020',
+      client: 'Personal Project',
+      desc: 'Coming Soon',
+      skills: [],
+    },
+  ]
 }
